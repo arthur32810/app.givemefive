@@ -12,4 +12,9 @@ class DevisController
     {
         return new Response("Notre propre Hello World !");
     }
+
+    public function orderAction()
+    {
+    	return new Response("order");
+    }
 }

@@ -1,3 +1,7 @@
 gmf_devis_homepage:
     path:     /
     defaults: { _controller: GMFDevisBundle:Devis:index }
+
+gmf_devis_order:
+    path:     /order
+    defaults: { _controller: GMFDevisBundle:Devis:order }
