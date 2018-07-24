@@ -1,3 +1,7 @@
+gmf_devis:
+    resource: "@GMFDevisBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

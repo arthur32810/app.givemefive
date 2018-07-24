@@ -1,0 +1,3 @@
+gmf_devis_homepage:
+    path:     /
+    defaults: { _controller: GMFDevisBundle:Default:index }
