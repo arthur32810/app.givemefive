@@ -17,4 +17,9 @@ class DevisController
     {
     	return new Response("order");
     }
+
+    public function thanksAction()
+    {
+    	return new Response("thanks");
+    }
 }

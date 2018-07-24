@@ -5,3 +5,7 @@ gmf_devis_homepage:
 gmf_devis_order:
     path:     /order
     defaults: { _controller: GMFDevisBundle:Devis:order }
+
+gmf_devis_thanks:
+    path:     /thanks
+    defaults: { _controller: GMFDevisBundle:Devis:thanks}
