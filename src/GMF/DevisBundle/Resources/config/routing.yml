@@ -1,11 +1,21 @@
+#Page d'accueil du site
 gmf_devis_homepage:
     path:     /
     defaults: { _controller: GMFDevisBundle:Devis:index }
 
+
+#Formulaire de réservation du devis
 gmf_devis_order:
     path:     /order
     defaults: { _controller: GMFDevisBundle:Devis:order }
 
+#Opération à effectuer après envoie du formulaire
+gmf_devis_createorder:
+    path:     /createOrder
+    defaults: { _controller: GMFDevisBundle:Devis:createOrder}
+
+
+# Remerciement après demande d'un devis
 gmf_devis_thanks:
     path:     /thanks
     defaults: { _controller: GMFDevisBundle:Devis:thanks}
