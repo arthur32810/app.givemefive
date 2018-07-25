@@ -4,13 +4,15 @@
 
 namespace GMF\DevisBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class DevisController
+class DevisController extends Controller
 {
     public function indexAction()
     {
-        return new Response("Notre propre Hello World !");
+        return $this->render('GMFDevisBundle:Devis:index.html.twig');
     }
 
     public function orderAction()
