@@ -20,7 +20,7 @@ class DevisController
 
     public function createOrderAction()
     {
-    	return new Response("create order")
+    	return new Response("create order");
     }
 
     public function thanksAction()
