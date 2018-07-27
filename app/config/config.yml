@@ -68,7 +68,4 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
-#assetic Configuration
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: '%kernel.debug%'
+
