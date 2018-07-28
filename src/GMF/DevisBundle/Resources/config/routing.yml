@@ -1,5 +1,5 @@
 #Page d'accueil du site
-gmf_devis_homepage:
+gmf_devis_home:
     path:     /
     defaults: { _controller: GMFDevisBundle:Devis:index }
 
