@@ -12,12 +12,14 @@ class DevisController extends Controller
 {
     public function indexAction()
     {
+    	// Affiche la page d'accueil
         return $this->render('GMFDevisBundle:Devis:index.html.twig');
     }
 
     public function orderAction()
     {
-    	return new Response("order");
+    	// Affiche la page de formulaire
+    	return $this->render('GMFDevisBundle:Devis:order.html.twig');
     }
 
     public function createOrderAction()
