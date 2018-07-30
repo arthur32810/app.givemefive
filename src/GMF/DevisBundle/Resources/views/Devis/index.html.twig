@@ -7,12 +7,18 @@
 {% endblock %}
 
 {% block gmfdevis_body %}
-	<div class="container">
-		<h5 class="text-center"> Post hanc adclinis Libano monti Phoenice, regio plena gratiarum et venustatis, urbibus decorata magnis et pulchris; in quibus amoenitate celebritateque nominum Tyros excellit, Sidon et Berytus isdemque pares Emissa et Damascus saeculis condita priscis. </h5>
+	<div class="container">	
+
+		<div class="row">
+			<h5 class="text-center"> Post hanc adclinis Libano monti Phoenice, regio plena gratiarum et venustatis, urbibus decorata magnis et pulchris; in quibus amoenitate celebritateque nominum Tyros excellit, Sidon et Berytus isdemque pares Emissa et Damascus saeculis condita priscis. </h5>
+
+			<img src="{{ asset('bundles/gmfdevis/images/video.png') }}" class="img-fluid rounded mx-auto d-block" alt="emplacement vidéo" />
+		</div>
+
 
 		<div class="row">
 			<div class="col">
-				<img src="{{ asset('bundles/gmfdevis/images/image.png') }}" alt="image de remplacement"/> 
+				<img src="{{ asset('bundles/gmfdevis/images/image.png') }}" class="img-fluid rounded float-left" alt="image de remplacement"/> 
 			</div>
 			<div class="col">
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, tortor nec facilisis ullamcorper, nisi nisl posuere ligula, id aliquet quam tellus ac justo. Cras dapibus ornare nisl, quis suscipit ex rhoncus et. Fusce scelerisque ligula ac tortor rhoncus, eget mattis libero cursus. Nam facilisis libero eget odio mattis laoreet in et magna. Quisque egestas leo orci, vitae volutpat libero malesuada quis. Proin justo sapien, egestas sed turpis et, pellentesque fringilla est. Maecenas et scelerisque libero. Nam finibus metus ac lacinia commodo. Vivamus laoreet hendrerit purus finibus convallis. Vivamus aliquam sollicitudin hendrerit. <br>
@@ -26,28 +32,41 @@
 		</h5>
 
 		<div class="row">
-			<div class="col" style="background-color: blue;">
-				col 1
+			<div class="col-6 text-center"  style="background-color:blue;" >
+				<div id="fidelite" style="text-align: center"> 
+					<h5> FIDELITE CLIENTS </h5>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, tortor nec facilisis ullamcorper, nisi nisl posuere ligula </p>
+					<button> en savoir plus </button> 
+				</div>
 			</div>
-			<div class="col" style="background-color: red;">
-				col 2
-			</div>	
-		</div>
+
+			<div class="col" style="background-color:red;">
+				<div id="reservation" style="text-align: center">
+					<h5> RESERVATION </h5>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, tortor nec facilisis ullamcorper, nisi nisl posuere ligula </p>
+					<button> en savoir plus </button>
+				</div>
+			</div>
+		</div> <br>
 
 		<div class="row">
-			<div class="col" style="background-color: green;">
-				col 1
+			<div class="col-6 text-center" style="background-color:green;" >
+				<div id="vente" style="text-align: center"> 
+					<h5> VENTE DE PRODUITS </h5>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, tortor nec facilisis ullamcorper, nisi nisl posuere ligula </p>
+					<button> en savoir plus </button> 
+				</div>
 			</div>
-			<div class="col" style="background-color: orange;">
-				col 2
-			</div>	
-		</div> <br>
 
-		<div class="text-center">
-			<a href="{{ path('gmf_devis_order') }}" role="button" class="btn btn-light" > DEMANDER UN DEVIS</a>
-		</div> <br>
-
-	</div>
+			<div class="col" style="background-color:orange;">
+				<div id="carte" style="text-align: center"> 
+					<h5> CARTE INTERACTIVE </h5>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, tortor nec facilisis ullamcorper, nisi nisl posuere ligula </p>
+					<button> en savoir plus </button> 
+				</div>
+			</div>
+		</div>
+	</div> <br>
 
 
 {% endblock %}

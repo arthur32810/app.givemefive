@@ -1,0 +1,17 @@
+/* Fichier Main.ccs
+Style css pincipal du site*/
+
+/* Image dans carré page application */
+#fidelite {background: url("../images/image.png") no-repeat;
+			max-width: 320px; 
+			height: 320px; }
+
+#reservation {background: url("../images/image.png") no-repeat;
+			max-width: 320px; }
+
+#vente {background: url("../images/image.png") no-repeat;
+			max-width: 320px; 
+			height: 320px; }
+
+#carte {background: url("../images/image.png") no-repeat;
+			max-width: 320px; }
