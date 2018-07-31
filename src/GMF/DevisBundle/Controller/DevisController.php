@@ -8,6 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use GMF\DevisBundle\Entity\Contact;
+use GMF\DevisBundle\Form\ContactType;
+
 class DevisController extends Controller
 {
     public function indexAction()
@@ -18,8 +21,12 @@ class DevisController extends Controller
 
     public function orderAction()
     {
+    	//Création du formulaire
+    	$contact = new Contact;
+    	$form = $this->get('form.factory')->create(ContactType::class, $contact);
+
     	// Affiche la page de formulaire
-    	return $this->render('GMFDevisBundle:Devis:order.html.twig');
+    	return $this->render('GMFDevisBundle:Devis:order.html.twig', array('form' => $form->createView(),));
     }
 
     public function createOrderAction()
