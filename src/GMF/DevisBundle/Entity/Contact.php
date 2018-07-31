@@ -24,6 +24,34 @@ class Contact
     /**
      * @var string
      *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="surname", type="string", length=255)
+     */
+    private $surname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="company", type="string", length=255, nullable=true)
+     */
+    private $company;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="siret", type="string", length=255, nullable=true)
+     */
+    private $siret;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="adress", type="string", length=255)
      */
     private $adress;
