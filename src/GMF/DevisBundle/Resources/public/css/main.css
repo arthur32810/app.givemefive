@@ -1,17 +1,15 @@
 /* Fichier Main.ccs
 Style css pincipal du site*/
 
+/* Taille des carrés, page d'accueil*/
+.size-card {max-width: 320px; 
+			height: 320px;}
+
 /* Image dans carré page application */
-#fidelite {background: url("../images/image.png") no-repeat;
-			max-width: 320px; 
-			height: 320px; }
+#fidelite {background: url("../images/image.png") no-repeat; }
 
-#reservation {background: url("../images/image.png") no-repeat;
-			max-width: 320px; }
+#reservation {background: url("../images/image.png") no-repeat;}
 
-#vente {background: url("../images/image.png") no-repeat;
-			max-width: 320px; 
-			height: 320px; }
+#vente {background: url("../images/image.png") no-repeat; }
 
-#carte {background: url("../images/image.png") no-repeat;
-			max-width: 320px; }
+#carte {background: url("../images/image.png") no-repeat; }
