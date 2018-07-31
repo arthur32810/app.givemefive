@@ -1,0 +1,211 @@
+<?php
+
+namespace GMF\DevisBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * devis
+ *
+ * @ORM\Table(name="devis")
+ * @ORM\Entity(repositoryClass="GMF\DevisBundle\Repository\devisRepository")
+ */
+class Devis
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deadline", type="date")
+     */
+    private $deadline;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numero", type="string", length=255, unique=true)
+     */
+    private $numero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="devis", type="string", length=255, unique=true)
+     */
+    private $url_devis;
+
+    /**
+    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Client", cascade={"persist"})
+    */
+    private $client;
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date.
+     *
+     * @param \DateTime $date
+     *
+     * @return devis
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date.
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set deadline.
+     *
+     * @param \DateTime $deadline
+     *
+     * @return devis
+     */
+    public function setDeadline($deadline)
+    {
+        $this->deadline = $deadline;
+
+        return $this;
+    }
+
+    /**
+     * Get deadline.
+     *
+     * @return \DateTime
+     */
+    public function getDeadline()
+    {
+        return $this->deadline;
+    }
+
+    /**
+     * Set numero.
+     *
+     * @param string $numero
+     *
+     * @return devis
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+
+        return $this;
+    }
+
+    /**
+     * Get numero.
+     *
+     * @return string
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * Set devis.
+     *
+     * @param string $devis
+     *
+     * @return devis
+     */
+    public function setDevis($devis)
+    {
+        $this->devis = $devis;
+
+        return $this;
+    }
+
+    /**
+     * Get devis.
+     *
+     * @return string
+     */
+    public function getDevis()
+    {
+        return $this->devis;
+    }
+
+    /**
+     * Set idClient.
+     *
+     * @param int $idClient
+     *
+     * @return devis
+     */
+    public function setIdClient($idClient)
+    {
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    /**
+     * Get idClient.
+     *
+     * @return int
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * Set urlDevis.
+     *
+     * @param string $urlDevis
+     *
+     * @return Devis
+     */
+    public function setUrlDevis($urlDevis)
+    {
+        $this->url_devis = $urlDevis;
+
+        return $this;
+    }
+
+    /**
+     * Get urlDevis.
+     *
+     * @return string
+     */
+    public function getUrlDevis()
+    {
+        return $this->url_devis;
+    }
+}
