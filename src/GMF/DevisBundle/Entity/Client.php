@@ -50,7 +50,7 @@ class Client
     private $siret;
 
     /**
-    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Contact" persist={"cascade"})
+    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Contact", cascade={"persist"})
     */
     private $contact;
 

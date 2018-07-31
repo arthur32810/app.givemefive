@@ -54,6 +54,11 @@ class Devis
     */
     private $client;
 
+    /**
+    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
+    */
+    private $modules;
+
 
     /**
      * Get id.
@@ -231,5 +236,29 @@ class Devis
     public function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Set modules.
+     *
+     * @param \GMF\DevisBundle\Entity\Modules|null $modules
+     *
+     * @return Devis
+     */
+    public function setModules(\GMF\DevisBundle\Entity\Modules $modules = null)
+    {
+        $this->modules = $modules;
+
+        return $this;
+    }
+
+    /**
+     * Get modules.
+     *
+     * @return \GMF\DevisBundle\Entity\Modules|null
+     */
+    public function getModules()
+    {
+        return $this->modules;
     }
 }
