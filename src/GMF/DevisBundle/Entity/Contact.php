@@ -214,4 +214,100 @@ class Contact
     {
         return $this->phone;
     }
+
+    /**
+     * Set name.
+     *
+     * @param string $name
+     *
+     * @return Contact
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set surname.
+     *
+     * @param string $surname
+     *
+     * @return Contact
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname.
+     *
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Set company.
+     *
+     * @param string|null $company
+     *
+     * @return Contact
+     */
+    public function setCompany($company = null)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company.
+     *
+     * @return string|null
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * Set siret.
+     *
+     * @param string|null $siret
+     *
+     * @return Contact
+     */
+    public function setSiret($siret = null)
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
+    /**
+     * Get siret.
+     *
+     * @return string|null
+     */
+    public function getSiret()
+    {
+        return $this->siret;
+    }
 }

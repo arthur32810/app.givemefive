@@ -261,4 +261,28 @@ class Devis
     {
         return $this->modules;
     }
+
+    /**
+     * Set contact.
+     *
+     * @param \GMF\DevisBundle\Entity\Contact|null $contact
+     *
+     * @return Devis
+     */
+    public function setContact(\GMF\DevisBundle\Entity\Contact $contact = null)
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * Get contact.
+     *
+     * @return \GMF\DevisBundle\Entity\Contact|null
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
 }
