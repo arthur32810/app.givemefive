@@ -50,9 +50,9 @@ class Devis
     private $url_devis;
 
     /**
-    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Client")
+    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Contact")
     */
-    private $client;
+    private $contact;
 
     /**
     * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
