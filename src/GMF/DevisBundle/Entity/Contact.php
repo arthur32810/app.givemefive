@@ -86,6 +86,12 @@ class Contact
 
 
     /**
+    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
+    */
+    private $modules;
+
+
+    /**
      * Get id.
      *
      * @return int
@@ -309,5 +315,29 @@ class Contact
     public function getSiret()
     {
         return $this->siret;
+    }
+
+    /**
+     * Set modules.
+     *
+     * @param \GMF\DevisBundle\Entity\Modules|null $modules
+     *
+     * @return Contact
+     */
+    public function setModules(\GMF\DevisBundle\Entity\Modules $modules = null)
+    {
+        $this->modules = $modules;
+
+        return $this;
+    }
+
+    /**
+     * Get modules.
+     *
+     * @return \GMF\DevisBundle\Entity\Modules|null
+     */
+    public function getModules()
+    {
+        return $this->modules;
     }
 }

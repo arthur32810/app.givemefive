@@ -54,11 +54,6 @@ class Devis
     */
     private $contact;
 
-    /**
-    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
-    */
-    private $modules;
-
 
     /**
      * Get id.
