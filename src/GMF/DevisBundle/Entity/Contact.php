@@ -86,12 +86,6 @@ class Contact
 
 
     /**
-    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
-    */
-    private $modules;
-
-
-    /**
      * Get id.
      *
      * @return int
