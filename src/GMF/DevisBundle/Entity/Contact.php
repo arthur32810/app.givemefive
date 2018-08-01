@@ -3,6 +3,8 @@
 namespace GMF\DevisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use GMF\DevisBundle\Validator\Phone as Phone;
 
 /**
  * Contact
@@ -25,6 +27,8 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min=2, minMessage="Votre prénom doit avoir au moins 2 lettres")
      */
     private $name;
 
@@ -32,6 +36,8 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min=2, minMessage="Votre nom doit avoir au moins 2 lettres")
      */
     private $surname;
 
@@ -53,6 +59,8 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="adress", type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min=2, minMessage="Votre adresse doit avoir au moins 2 lettres")
      */
     private $adress;
 
@@ -60,6 +68,8 @@ class Contact
      * @var int
      *
      * @ORM\Column(name="zip_code", type="integer")
+     * @Assert\NotBlank
+     * @Assert\Length(min=5, minMessage="Votre code postal doit être composé d'au moins 5 chiffres")
      */
     private $zipCode;
 
@@ -67,6 +77,8 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min=2, minMessage="Votre ville doit avoir au moins 2 lettres")
      */
     private $city;
 
@@ -74,13 +86,17 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email(message="L'email '{{value}}' n'est pas une adresse valide", checkMX=true)
      */
     private $email;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="string", length=255)
+     * @Assert\NotBlank
+     * @Phone()
      */
     private $phone;
 

@@ -26,7 +26,7 @@ class ContactType extends AbstractType
             ->add('zipCode', IntegerType::class)
             ->add('city',    TextType::class)
             ->add('email',   EmailType::class)
-            ->add('phone',   IntegerType::class)
+            ->add('phone',   TextType::class)
             ->add('envoyer', SubmitType::class);
     }/**
      * {@inheritdoc}

@@ -19,11 +19,16 @@ class DevisController extends Controller
         return $this->render('GMFDevisBundle:Devis:index.html.twig');
     }
 
-    public function orderAction()
+    public function orderAction(Request $request)
     {
     	//Création du formulaire
     	$contact = new Contact;
     	$form = $this->get('form.factory')->create(ContactType::class, $contact);
+
+        if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            return new Response('complete');
+        }
 
     	// Affiche la page de formulaire
     	return $this->render('GMFDevisBundle:Devis:order.html.twig', array('form' => $form->createView(),));
