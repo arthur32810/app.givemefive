@@ -35,11 +35,15 @@
 
 			<div class="row">
 				<div class="col">
-					  {{ form_row(form.surname) }}
+					{{ form_label(form.surname) }}
+					{{ form_errors(form.surname)}}
+					{{ form_widget(form.surname)}}
 				</div>
 
 				<div class="col">
-					{{ form_row(form.name) }}
+					{{ form_label(form.name) }}
+					{{ form_errors(form.name)}}
+					{{ form_widget(form.name)}}
 				</div>
 			</div>
 
@@ -52,9 +56,9 @@
 			<div id="email">
 				{{ form_label(form.email, "Adresse e-mail") }}
 				{{ form_errors(form.email)}}
-				{{ form_widget(form.email)}} <br>
+				{{ form_widget(form.email, {'attr':{'onBlur':'checkEmail()'}})}} <br>
 
-				<input type="email" id="email2" class="form-control" placeholder="confirmez votre adresse email" onBlur="checkEmail()" /> <br>
+				<input type="email" id="email2" class="form-control" placeholder="confirmez votre adresse email" onBlur="checkEmail()" required/> <br>
 				<p class="alert alert-danger" id="email-danger" style="display:none"> Les deux adresses email ne sont pas identiques </p>
 				<p class="alert alert-success" id="email-success" style="display:none"> Les deux adresses email sont indentiques </p>
 			</div> <br>
@@ -86,21 +90,22 @@
 				</div>
 			</div> <br>
 
+			<p> Modules </p>
 			<div class="row">
 				<div class="col">
-					<input type="checkbox" name"reservation" id="reservation"/> <label for="reservation">  Réservation </label>
+					<input type="checkbox" name"modules" id="reservation"/> <label for="reservation">  Réservation </label>
 				</div>
 
 				<div class="col">
-					<input type="checkbox" name"fidelite" id="fidelite"/> <label for="fidelite">  Fidélité clients </label>
+					<input type="checkbox" name"modules" id="fidelite"/> <label for="fidelite">  Fidélité clients </label>
 				</div>
 
 				<div class="col">
-					<input type="checkbox" name"carte" id="carte"/> <label for="carte">  Carte interactive </label>
+					<input type="checkbox" name"modules" id="carte"/> <label for="carte">  Carte interactive </label>
 				</div>
 
 				<div class"col">
-					<input type="checkbox" name"vente" id="vente"/> <label for="vente">  Vente de produits </label>
+					<input type="checkbox" name"modules" id="vente"/> <label for="vente">  Vente de produits </label>
 				</div>
 
 			</div>
@@ -147,13 +152,18 @@
 			{
 				$('#email-success').show();
 				$("#email-danger").hide();
+				document.getElementById('gmf_devisbundle_contact_envoyer').disabled = '';
 			}
 			else
 			{
 				$('#email-danger').show();
 				$('#email-success').hide();
+
+				document.getElementById('gmf_devisbundle_contact_envoyer').disabled = 'disabled';
 			}
 		}
+
+		$('ul[class="list-unstyled"]').addClass('alert alert-danger');
 			
 	</script>
 
