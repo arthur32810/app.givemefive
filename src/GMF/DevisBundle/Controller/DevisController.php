@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use GMF\DevisBundle\Entity\Contact;
+use GMF\DevisBundle\Entity\Modules;
 use GMF\DevisBundle\Form\ContactType;
 
 class DevisController extends Controller
@@ -40,7 +41,15 @@ class DevisController extends Controller
             
             if($modules)
             {
-                
+                // récupération de l'entité modules
+                $modules = new Modules();
+
+                // On récupère l'EntityManager
+                $em = $this->getDoctrine()->getManager();
+
+                //on persist les modules en base de données
+                $orderAction->persistModules($datas['modules'], $modules, $em);
+               
             }
             else 
             { 
