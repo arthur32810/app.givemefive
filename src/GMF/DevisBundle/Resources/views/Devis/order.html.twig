@@ -18,6 +18,14 @@
 			{# Erreur du formulaire #}
 			{{ form_errors(form) }}
 
+			{% for label, messages in app.flashes %}
+			    {% for message in messages %}
+			        <div class="flash-{{ label }} alert alert-danger">
+			            {{ message }}
+			        </div>
+			    {% endfor %}
+			{% endfor %}
+
 			<div class="row">
 				<div class="col">
 			       <input type="radio" name="category" value="particulier" id="particulier" onClick="Category(this);" checked /> <label for="particulier">Particulier </label>
@@ -93,7 +101,6 @@
 			<p> {{ form_label(form.modules)}} </p>
 			<div id="modules">
 				{{ form_widget(form.modules, {'attr':{'class':'row'}})}}
-
 			</div>
 
 			<div id="submit" class="row">

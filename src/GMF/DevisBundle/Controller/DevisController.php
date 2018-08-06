@@ -26,19 +26,26 @@ class DevisController extends Controller
 
         if($request->isMethod('POST') && $form->handleRequest($request))
         {
+            //défintion de la session
+            $session = $request->getSession();
+
+            //Récupération des données du formulaire
             $datas = $form->getData();
 
-            $modules = $datas['modules'];
-            if($modules == null)
+            //Appel du service GMFOrderAction
+            $orderAction = $this->container->get('gmf_devis.orderAction');
+
+            //Test si au moins un modules à été sélectionné
+            $modules = $orderAction->modulesNotNull($datas);
+            
+            if($modules)
             {
-                echo 'null';
+                
             }
             else 
-            {
-                echo 'not null';
+            { 
+                $session->getFlashBag()->add('modules', 'Vous devez sélectionnez au moins un module');
             }
-
-            var_dump($datas);
         }
 
     	// Affiche la page de formulaire

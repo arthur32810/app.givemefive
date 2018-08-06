@@ -1,4 +1,7 @@
 services:
+  gmf_devis.orderAction:
+    class: GMF\DevisBundle\Services\GMFOrderAction
+    
 #    gmf_devis.example:
 #        class: GMF\DevisBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
