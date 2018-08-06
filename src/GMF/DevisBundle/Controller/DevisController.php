@@ -21,13 +21,24 @@ class DevisController extends Controller
 
     public function orderAction(Request $request)
     {
-    	//Création du formulaire
-    	$contact = new Contact;
-    	$form = $this->get('form.factory')->create(ContactType::class, $contact);
+    	//Formulaire sans entité
+    	$form = $this->get('form.factory')->create(ContactType::class);
 
-        if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        if($request->isMethod('POST') && $form->handleRequest($request))
         {
-            return new Response('complete');
+            $datas = $form->getData();
+
+            $modules = $datas['modules'];
+            if($modules == null)
+            {
+                echo 'null';
+            }
+            else 
+            {
+                echo 'not null';
+            }
+
+            var_dump($datas);
         }
 
     	// Affiche la page de formulaire

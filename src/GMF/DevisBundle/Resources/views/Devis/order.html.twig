@@ -35,7 +35,7 @@
 
 			<div class="row">
 				<div class="col">
-					{{ form_label(form.surname) }}
+					{{ form_label(form.surname) }} 
 					{{ form_errors(form.surname)}}
 					{{ form_widget(form.surname)}}
 				</div>
@@ -58,7 +58,7 @@
 				{{ form_errors(form.email)}}
 				{{ form_widget(form.email, {'attr':{'onBlur':'checkEmail()'}})}} <br>
 
-				<input type="email" id="email2" class="form-control" placeholder="confirmez votre adresse email" onBlur="checkEmail()" required/> <br>
+				{{form_widget(form.email2, {'attr':{'onBlur': 'checkEmail()', 'placeholder': 'Confirmer votre email'}})}} <br>
 				<p class="alert alert-danger" id="email-danger" style="display:none"> Les deux adresses email ne sont pas identiques </p>
 				<p class="alert alert-success" id="email-success" style="display:none"> Les deux adresses email sont indentiques </p>
 			</div> <br>
@@ -90,23 +90,9 @@
 				</div>
 			</div> <br>
 
-			<p> Modules </p>
-			<div class="row">
-				<div class="col">
-					<input type="checkbox" name"modules" id="reservation"/> <label for="reservation">  Réservation </label>
-				</div>
-
-				<div class="col">
-					<input type="checkbox" name"modules" id="fidelite"/> <label for="fidelite">  Fidélité clients </label>
-				</div>
-
-				<div class="col">
-					<input type="checkbox" name"modules" id="carte"/> <label for="carte">  Carte interactive </label>
-				</div>
-
-				<div class"col">
-					<input type="checkbox" name"modules" id="vente"/> <label for="vente">  Vente de produits </label>
-				</div>
+			<p> {{ form_label(form.modules)}} </p>
+			<div id="modules">
+				{{ form_widget(form.modules, {'attr':{'class':'row'}})}}
 
 			</div>
 
@@ -146,7 +132,7 @@
 		function checkEmail()
 		{
 			var email1 = document.getElementById("gmf_devisbundle_contact_email").value;
-			var email2 = document.getElementById("email2").value;
+			var email2 = document.getElementById("gmf_devisbundle_contact_email2").value;
 			 
 			if(email1 == email2)
 			{
@@ -164,6 +150,7 @@
 		}
 
 		$('ul[class="list-unstyled"]').addClass('alert alert-danger');
+		$('div.checkbox').addClass('col');
 			
 	</script>
 
