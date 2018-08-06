@@ -49,6 +49,12 @@ class DevisController extends Controller
 
                 //on persist les modules en base de données
                 $orderAction->persistModules($datas['modules'], $modules, $em);
+
+                //Récupération de l'entité contact
+                $contact = new Contact();
+
+                // on persiste le contact dans la bdd
+                $orderAction->persistContact($datas, $contact, $em);
                
             }
             else 

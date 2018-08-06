@@ -44,4 +44,20 @@ class GMFOrderAction
 		$em->persist($modules);
 		$em->flush();
 	}
+
+	public function persistContact($data, $contact, $em)
+	{
+		$contact->setName($data['name']);
+		$contact->setSurname($data['surname']);
+		$contact->setCompany($data['company']);
+		$contact->setSiret($data['siret']);
+		$contact->setAdress($data['adress']);
+		$contact->setZipCode($data['zipCode']);
+		$contact->setCity($data['city']);
+		$contact->setEmail($data['email']);
+		$contact->setPhone($data['phone']);
+
+		$em->persist($contact);
+		$em->flush();
+	}
 }
