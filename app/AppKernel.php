@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new GMF\DevisBundle\GMFDevisBundle(),
             new GMF\UserBundle\GMFUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
