@@ -1,3 +1,7 @@
+gmf_user:
+    resource: "@GMFUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 gmf_devis:
     resource: "@GMFDevisBundle/Resources/config/routing.yml"
     prefix:   /
