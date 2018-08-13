@@ -18,56 +18,10 @@
 
 </head>
 <body>
-	<!-- Navigation -->
-	<div id="navigation">
-		<div class="pos-f-t">
-		  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="menu">
-		  		<!-- logo de l'agence -->
-				<a class="navbar-brand" href="#">
-					<img src="{{ asset('bundles/gmfdevis/images/logo.png') }}" alt="logo de l'agence">
-				</a>
 
-				<!-- bouton pour menu responsive -->
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    			    <span class="navbar-toggler-icon"></span>
-  				</button>
-
-  				<!-- Menu principal -->
-				<div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-					<ul class="navbar-nav ">
-						<li class="nav-item">
-							<a class="nav-link" href="#"> <i class="fas fa-home"></i> ACCUEIL </a> 
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" href="{{ path('gmf_devis_home')}} "> APPLICATION </a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#"> CONTACT </a>
-						</li>
-						<li class="nav-item dropdown"> 
-					        <a class="nav-link" id="openMenu" href="#menuCollapse" role="button" data-toggle="collapse" aria-expanded="false">
-					          <span class="navbar-toggler-icon"></span> Menu
-					        </a>
-					    </li>
-					</ul>
-				</div>
-			</nav>
-
-			<!-- menu secondaire -->
-			<div class="collapse menu-collapse" id="menuCollapse">
-				<a href="#" class="float-right" id="closeMenu"> <i class="fas fa-times" style="font-size: 25px;"></i> </a> <br>
-			     <ul class="nav flex-column text-center">
-		    		<a class="nav-link" href="#"> ACCUEIL </a>
-		    		<a class="nav-link" href="{{ path('gmf_devis_home')}} "> APPLICATION </a>
-		    		<a class="nav-link" href="#"> QUI SOMMES NOUS ? </a>
-		    		<a class="nav-link" href="#"> NOS SERVICES </a>
-		    		<a class="nav-link" href="#"> REALISATION </a>
-		    		<a class="nav-link" href="#"> BLOG </a>
-		    		<a class="nav-link" href="#"> CONTACT </a>
-			    </ul>
-			</div>
-		</div>
-	</div> <br>
+	<!-- Menu de la page -->
+	{% block menu %}
+	{% endblock %}
 
 	<!-- Corps de la page -->
 	{% block body %}
