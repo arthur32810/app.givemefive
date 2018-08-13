@@ -5,7 +5,7 @@ gmf_devis:
 login:
     path: /login
     defaults:
-        _controller: OCUserBundle:Security:login
+        _controller: GMFUserBundle:Security:login
 
 login_check:
     path: /login_check
