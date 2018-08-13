@@ -1,6 +1,15 @@
 {# On étend notre layout #}
 {% extends "::layout.html.twig" %}
 
+{% block header %}
+  <!-- logo de l'agence -->
+  <div class="row ">
+    <a class="" href="#">
+      <img src="{{ asset('bundles/gmfdevis/images/logo.png') }}" alt="logo de l'agence">
+    </a>
+  </div> <br>
+{% endblock %}
+
 {# Dans notre layout, il faut définir le block body #}
 {% block body %}
 
