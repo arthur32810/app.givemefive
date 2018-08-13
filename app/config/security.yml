@@ -27,7 +27,8 @@ security:
       logout:
         path:       logout
         target:     login
-      remember_me: %secret%
+      remember_me: 
+        secret:     %secret%
 
   access_control:
     #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
