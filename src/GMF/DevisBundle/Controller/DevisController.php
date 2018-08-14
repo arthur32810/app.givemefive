@@ -71,9 +71,4 @@ class DevisController extends Controller
     {
     	return new Response("thanks");
     }
-
-    public function adminAction()
-    {
-        return new Response("admin");
-    }
 }

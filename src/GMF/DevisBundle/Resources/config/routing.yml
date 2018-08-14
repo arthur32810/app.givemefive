@@ -13,7 +13,3 @@ gmf_devis_order:
 gmf_devis_thanks:
     path:     /thanks
     defaults: { _controller: GMFDevisBundle:Devis:thanks}
-
-gmf_administration:
-    path:   /admin
-    defaults: { _controller: GMFDevisBundle:Devis:admin}
