@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new GMF\DevisBundle\GMFDevisBundle(),
             new GMF\UserBundle\GMFUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
