@@ -67,13 +67,13 @@ class DevisController extends Controller
     	return $this->render('GMFDevisBundle:Devis:order.html.twig', array('form' => $form->createView(),));
     }
 
-    public function createOrderAction()
-    {
-    	return new Response("create order");
-    }
-
     public function thanksAction()
     {
     	return new Response("thanks");
+    }
+
+    public function adminAction()
+    {
+        return new Response("admin");
     }
 }
