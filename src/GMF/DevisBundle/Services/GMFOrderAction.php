@@ -41,8 +41,7 @@ class GMFOrderAction
 			}
 		}
 
-		/*$em->persist($modules);
-		$em->flush();*/
+		return $modules;
 	}
 
 	public function persistContact($data, $contact, $em)
@@ -57,7 +56,6 @@ class GMFOrderAction
 		$contact->setEmail($data['email']);
 		$contact->setPhone($data['phone']);
 
-		/*$em->persist($contact);
-		$em->flush();*/
+		return $contact;
 	}
 }

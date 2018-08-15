@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use GMF\DevisBundle\Entity\Contact;
 use GMF\DevisBundle\Entity\Modules;
+use GMF\DevisBundle\Entity\Devis;
 use GMF\DevisBundle\Form\ContactType;
 
 class DevisController extends Controller
@@ -47,14 +48,28 @@ class DevisController extends Controller
                 // On récupère l'EntityManager
                 $em = $this->getDoctrine()->getManager();
 
-                //on persist les modules en base de données
-                $orderAction->persistModules($datas['modules'], $modules, $em);
+                //on défini les modules sélectionnés dans l'entité
+                $modules = $orderAction->persistModules($datas['modules'], $modules, $em);
 
                 //Récupération de l'entité contact
                 $contact = new Contact();
 
-                // on persiste le contact dans la bdd
-                $orderAction->persistContact($datas, $contact, $em);
+                // on défini l'entité contact
+                $contact = $orderAction->persistContact($datas, $contact, $em);
+
+                //Récupération de l'entité devis
+                $devis = new Devis();
+
+                //Appel du service GMFDevisAction
+                $devisAction = $this->container->get('gmf_devis.devisAction');
+
+                //On défini la date du devis
+                $devis = $devisAction->dateDevis($devis);
+
+                // Création du numéro de devis
+                $devis = $devisAction->numeroDevis($devis, $em);
+
+                var_dump($devis);
                
             }
             else 

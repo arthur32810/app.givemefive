@@ -1,6 +1,9 @@
 services:
   gmf_devis.orderAction:
     class: GMF\DevisBundle\Services\GMFOrderAction
+
+  gmf_devis.devisAction:
+    class: GMF\DevisBundle\Services\GMFDevisAction
     
 #    gmf_devis.example:
 #        class: GMF\DevisBundle\Example
