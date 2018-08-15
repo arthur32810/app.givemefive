@@ -69,19 +69,19 @@ class DevisController extends Controller
                 // Création du numéro de devis
                 $devis = $devisAction->numeroDevis($devis, $em);               
 
-                // On lies les entitiés ensemble et en envoie en bdd
-                $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
-
                 //Appel du service GMFDevisAction
                 $emailAction = $this->container->get('gmf_devis.emailAction');
 
                 //Création du PDF
-                $devisPDF = $emailAction->generatePDF();
+                $devisPDF = $emailAction->generatePDF($contact, $modules, $devis);
 
                 // Envoi du mail
-                $email = $emailAction->sendMail($contact, $devisPDF);
+                $email = $emailAction->sendMail($contact, $modules, $devis, $devisPDF);
 
-                //return $this->redirectToRoute('gmf_devis_thanks');
+                // On lies les entitiés ensemble et en envoie en bdd
+                $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
+
+                return $this->redirectToRoute('gmf_devis_thanks');
                
             }
             else 
@@ -96,6 +96,6 @@ class DevisController extends Controller
 
     public function thanksAction()
     {
-    	return $this->render('GMFDevisBundle:devis:devis.html.twig');
+    	return $this->render('GMFDevisBundle:devis:thanks.html.twig');
     }
 }

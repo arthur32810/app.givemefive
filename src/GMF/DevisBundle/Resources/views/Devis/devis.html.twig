@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Devis n°XXX - GIVE ME FIVE</title>
+	<title>Devis {{devis.numero}} - GIVE ME FIVE</title>
 
 	<STYLE type="text/css">
 	   .container {
@@ -19,10 +19,10 @@
 	<div class="container">
 		
 		<img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/logo-devis.png') }}" alt="logo de l'agence Give Me Five" />
-		<p style="text-align: right"> DEVIS n°XXX </p>
+		<p style="text-align: right"> DEVIS {{ devis.numero}} </p>
 
 		<div>
-			<p> Date: JJ/MM/AAAA</p>
+			<p> Date: {{devis.date|date('d/m/Y')}}</p>
 		</div>
 
 		<div style="columns : 2;">
@@ -44,22 +44,59 @@
 				<p> Destinataire </p>
 
 				<div>
-					<p> Nom : Name(entreprise ou client) </p>
+					<p> Contact : {% if contact.company != null %} 
+								{{contact.company }} 
+								{% else %}
+								{{ contact.name }} {{contact.surname|upper}}
+								{% endif %} </p>
 					<p> Adresse : <br>
-						Adresse <br>
-						City Zip_code </p> 
-					<p> Email : art@e.fr</p>
+						{{ contact.adress}} <br>
+						{{contact.zipCode}}, {{ contact.city}}</p> 
+					<p> Email : {{contact.email}}</p>
 				</div>
 
 			</div>
 		</div> <br>
 
 		<div>
-			<p style="text-align: center"> Modules choisis </p>
-		
-			<p style="text-align: right"> Modules : XX.XX€ </p>
+			<p style="text-align: center"> Modules choisis : </p>
+			{% set nModules = 0 %}
+			{% set total = 0 %}
 
-			<p style="text-align: right"> Prix Total : XX € </p>
+			{% if modules.fidelite != null %}
+				<p style="text-align: right;"> Fidelité : 29.99€ </p>
+				{% set nModules = nModules + 1 %}
+				{% set total = total + 29.99 %}
+			{% endif %}
+
+			{% if modules.carte != null %}
+				<p style="text-align: right;"> Carte interactive : 39.99€ </p>
+				{% set nModules = nModules + 1 %}
+				{% set total = total + 39.99 %}
+			{% endif %}
+
+			{% if modules.vente != null %}
+				<p style="text-align: right;"> Vente de produits : 49.99€ </p>
+				{% set nModules = nModules + 1 %}
+				{% set total = total + 49.99 %}
+			{% endif %}
+
+			{% if modules.reservation != null %}
+				<p style="text-align: right;"> Réservation : 59.99€ </p>
+				{% set nModules = nModules + 1 %}
+				{% set total = total + 59.99 %}
+			{% endif %}
+
+			{% if nModules == 3 %}
+				<p style="text-align: right;"> Offres 3 Modules : - 10.00€ </p>
+				{% set total = total - 10.00 %}
+			{% elseif nModules == 4 %}
+				<p style="text-align: right;"> Offres 4 Modules : - 20.00€ </p>
+				{%set total = total - 20.00 %}	
+			{% endif %}
+
+
+			<p style="text-align: right"> Prix Total : {{ total}} € </p>
 		</div>
 	</div>
 
