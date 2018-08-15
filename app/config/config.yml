@@ -87,7 +87,7 @@ easy_admin:
             label: 'Gestion des devis'
             list:
                 title: 'Gestion des devis'
-                fields: ['numero', 'url_devis', 'date']
+                fields: ['numero', 'date']
         Contact:
             class: GMF\DevisBundle\Entity\Contact
         User:

@@ -67,14 +67,10 @@ class DevisController extends Controller
                 $devis = $devisAction->dateDevis($devis);
 
                 // Création du numéro de devis
-                $devis = $devisAction->numeroDevis($devis, $em);
-
-                 var_dump($devis);
-               
+                $devis = $devisAction->numeroDevis($devis, $em);               
 
                 // On lies les entitiés ensemble et en envoie en bdd
                 $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
-
                
             }
             else 
