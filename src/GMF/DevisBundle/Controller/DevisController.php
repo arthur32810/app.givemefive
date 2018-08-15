@@ -71,6 +71,8 @@ class DevisController extends Controller
 
                 // On lies les entitiés ensemble et en envoie en bdd
                 $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
+
+                return $this->redirectToRoute('gmf_devis_thanks');
                
             }
             else 
@@ -85,6 +87,6 @@ class DevisController extends Controller
 
     public function thanksAction()
     {
-    	return $this->render('GMFDevisBundle:devis:devis.html.twig');
+    	return $this->render('GMFDevisBundle:devis:thanks.html.twig');
     }
 }
