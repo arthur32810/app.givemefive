@@ -72,7 +72,14 @@ class DevisController extends Controller
                 // On lies les entitiés ensemble et en envoie en bdd
                 $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
 
-                return $this->redirectToRoute('gmf_devis_thanks');
+                //Appel du service GMFDevisAction
+                $emailAction = $this->container->get('gmf_devis.emailAction');
+
+                $email = $emailAction->generatePDF();
+
+                var_dump($email);
+
+                //return $this->redirectToRoute('gmf_devis_thanks');
                
             }
             else 

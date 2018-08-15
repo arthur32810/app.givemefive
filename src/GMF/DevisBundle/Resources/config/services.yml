@@ -4,6 +4,11 @@ services:
 
   gmf_devis.devisAction:
     class: GMF\DevisBundle\Services\GMFDevisAction
+
+  gmf_devis.emailAction:
+    class:  GMF\DevisBundle\Services\GMFEmailAction
+    arguments:
+      - "@twig"
     
 #    gmf_devis.example:
 #        class: GMF\DevisBundle\Example
