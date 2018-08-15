@@ -27,8 +27,21 @@ class GMFEmailAction
 
 	      $dompdf->render();
 
-	      $devis = $dompdf->output();
+	      $devisPDF = $dompdf->output();
 
-	      return $devis;
+	      return $devisPDF;
+ 	}
+
+ 	public function sendMail($contact, $devisPDF)
+ 	{
+ 		$message = (new \Swift_Message('Demande de devis - Modules GiveMeFive'))
+        ->setFrom('accueil@givemefive.artdevelopp.fr')
+        ->setTo($contact->getEmail())
+        ->setBody(
+                $this->twig->render( 'GMFDevisBundle:Devis:devis.html.twig'), 'text/html')
+        ->attach(new \Swift_Attachment($devisPDF, 'devis.pdf'));
+
+      //Envoi du mail
+      //$this->mailer->send($message);
  	}
  }

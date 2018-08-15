@@ -75,9 +75,11 @@ class DevisController extends Controller
                 //Appel du service GMFDevisAction
                 $emailAction = $this->container->get('gmf_devis.emailAction');
 
-                $email = $emailAction->generatePDF();
+                //Création du PDF
+                $devisPDF = $emailAction->generatePDF();
 
-                var_dump($email);
+                // Envoi du mail
+                $email = $emailAction->sendMail($contact, $devisPDF);
 
                 //return $this->redirectToRoute('gmf_devis_thanks');
                
