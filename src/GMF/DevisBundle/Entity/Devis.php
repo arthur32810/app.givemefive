@@ -43,13 +43,6 @@ class Devis
     private $numero;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="devis", type="string", length=255, unique=true)
-     */
-    private $url_devis;
-
-    /**
     * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Contact")
     */
     private $contact;
