@@ -43,12 +43,14 @@ class Devis
     private $numero;
 
     /**
-    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Contact")
+    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Contact", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=false)
     */
     private $contact;
 
     /**
     * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=false)
     */
     private $modules;
 

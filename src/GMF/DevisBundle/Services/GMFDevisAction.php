@@ -1,16 +1,20 @@
 <?php
 namespace GMF\DevisBundle\Services;
 
+use DateTime;
+use DateInterval;
+
 class GMFDevisAction
 {
 	public function dateDevis($devis)
 	{
 		// date du jour
-		$date = date('Y-m-d');
+		$date = new DateTime();
 		$devis->setDate($date);
 
 		// date d'expiration de devis (+3 mois)
-		$deadline = date('Y-m-d', strtotime('+3month'));
+		$deadline = new DateTime();
+		$deadline = $deadline->add(new DateInterval('P3M'));
 		$devis->setDeadline($deadline);
 
 		return $devis;
@@ -50,5 +54,14 @@ class GMFDevisAction
 	    }
 
 	    return $devis->setNumero($code);
+	}
+
+	public function persistDevis($contact, $modules, $devis, $em)
+	{
+		$devis->setContact($contact);
+		$devis->setModules($modules);
+
+		$em->persist($devis);
+		$em->flush();
 	}
 }
