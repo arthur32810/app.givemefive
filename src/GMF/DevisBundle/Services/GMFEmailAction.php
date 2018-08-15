@@ -7,10 +7,12 @@ use Dompdf\Dompdf;
 class GMFEmailAction
  {
  	private $twig;
+ 	private $mailer;
 
- 	public function __construct($twig)
+ 	public function __construct($twig, $mailer)
  	{
  		$this->twig = $twig;
+ 		$this->mailer = $mailer;
  	}
  	
  	public function generatePDF()
@@ -42,6 +44,6 @@ class GMFEmailAction
         ->attach(new \Swift_Attachment($devisPDF, 'devis.pdf'));
 
       //Envoi du mail
-      //$this->mailer->send($message);
+      $this->mailer->send($message);
  	}
  }

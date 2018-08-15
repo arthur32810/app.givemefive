@@ -9,6 +9,7 @@ services:
     class:  GMF\DevisBundle\Services\GMFEmailAction
     arguments:
       - "@twig"
+      - "@mailer"
     
 #    gmf_devis.example:
 #        class: GMF\DevisBundle\Example
