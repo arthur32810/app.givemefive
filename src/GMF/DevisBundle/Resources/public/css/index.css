@@ -1,0 +1,23 @@
+/* Fichier index.css
+Style css de la page application */
+
+/* Taille des carrés, page d'accueil*/
+.size-card {max-width: 320px; 
+			height: 310px;
+			margin: 0 auto;}
+
+.description-card { background-color: rgba(1, 197, 151, 0.8);
+					width: 80%;
+					margin-left: 32px; }
+
+h5 {color : #2b30ae;}
+
+/* Image dans carré page application */
+#fidelite {background: url("../images/fidelite.jpg") no-repeat; }
+
+#reservation {background: url("../images/reservation.jpg") no-repeat;}
+
+#vente {background: url("../images/vente.jpg") no-repeat; }
+
+#carte {background: url("../images/carte.jpg") no-repeat; }
+
