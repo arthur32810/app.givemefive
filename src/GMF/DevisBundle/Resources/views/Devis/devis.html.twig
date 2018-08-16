@@ -19,31 +19,29 @@
 	<div class="container">
 		
 		<img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/logo-devis.png') }}" alt="logo de l'agence Give Me Five" />
-		<p style="text-align: right"> DEVIS {{ devis.numero}} </p>
+		<h3 style="text-align: right; color: #2b30ae"> DEVIS {{ devis.numero}} </h3>
 
 		<div>
-			<p> Date: {{devis.date|date('d/m/Y')}}</p>
+			<h3 style="color: #2b30ae"> Date: <span style="color: black"> {{devis.date|date('d/m/Y')}}</span></h3>
 		</div>
 
 		<div style="columns : 2;">
 			<div>
-				<p> Emetteur </p>
-				<div>
-					<div>
-						<p> Votre contact : Prénom Nom </p>
-						<p> Adresse : <br> 3 rue centre de marseille <br>
-						13001, Marseille </p> 
-						<p> Pays :  France</p>
-						<p> Email : accueil@givemefive.artdevelopp.fr  </p>
-					</div>
+				<h3 style="color: #2b30ae"> Emetteur </h3>
+				<div style="color: #01c597; font-weight: bold">
+					<p> Votre contact : Gerome PELLERIN </p>
+					<p> Adresse : <br> 3 rue centre de marseille <br>
+					13001, Marseille </p> 
+					<p> Pays :  France</p>
+					<p> Email : accueil@givemefive.artdevelopp.fr  </p>
 				</div>
 			</div>
 				
 
 			<div>
-				<p> Destinataire </p>
+				<h3 style="color: #2b30ae"> Destinataire </h3>
 
-				<div>
+				<div style="color: #01c597; font-weight: bold">
 					<p> Contact : {% if contact.company != null %} 
 								{{contact.company }} 
 								{% else %}
@@ -59,44 +57,44 @@
 		</div> <br>
 
 		<div>
-			<p style="text-align: center"> Modules choisis : </p>
+			<h3 style="text-align: center; color: #2b30ae"> Modules choisis : </h3>
 			{% set nModules = 0 %}
 			{% set total = 0 %}
+			<b>
+				{% if modules.fidelite != null %}
+					<p style="text-align: right;"> Fidelité : 29.99€ </p>
+					{% set nModules = nModules + 1 %}
+					{% set total = total + 29.99 %}
+				{% endif %}
 
-			{% if modules.fidelite != null %}
-				<p style="text-align: right;"> Fidelité : 29.99€ </p>
-				{% set nModules = nModules + 1 %}
-				{% set total = total + 29.99 %}
-			{% endif %}
+				{% if modules.carte != null %}
+					<p style="text-align: right;"> Carte interactive : 39.99€ </p>
+					{% set nModules = nModules + 1 %}
+					{% set total = total + 39.99 %}
+				{% endif %}
 
-			{% if modules.carte != null %}
-				<p style="text-align: right;"> Carte interactive : 39.99€ </p>
-				{% set nModules = nModules + 1 %}
-				{% set total = total + 39.99 %}
-			{% endif %}
+				{% if modules.vente != null %}
+					<p style="text-align: right;"> Vente de produits : 49.99€ </p>
+					{% set nModules = nModules + 1 %}
+					{% set total = total + 49.99 %}
+				{% endif %}
 
-			{% if modules.vente != null %}
-				<p style="text-align: right;"> Vente de produits : 49.99€ </p>
-				{% set nModules = nModules + 1 %}
-				{% set total = total + 49.99 %}
-			{% endif %}
+				{% if modules.reservation != null %}
+					<p style="text-align: right;"> Réservation : 59.99€ </p>
+					{% set nModules = nModules + 1 %}
+					{% set total = total + 59.99 %}
+				{% endif %}
 
-			{% if modules.reservation != null %}
-				<p style="text-align: right;"> Réservation : 59.99€ </p>
-				{% set nModules = nModules + 1 %}
-				{% set total = total + 59.99 %}
-			{% endif %}
+				{% if nModules == 3 %}
+					<p style="text-align: right;"> Offres 3 Modules : - 10.00€ </p>
+					{% set total = total - 10.00 %}
+				{% elseif nModules == 4 %}
+					<p style="text-align: right;"> Offres 4 Modules : - 20.00€ </p>
+					{%set total = total - 20.00 %}	
+				{% endif %}
+			</b>
 
-			{% if nModules == 3 %}
-				<p style="text-align: right;"> Offres 3 Modules : - 10.00€ </p>
-				{% set total = total - 10.00 %}
-			{% elseif nModules == 4 %}
-				<p style="text-align: right;"> Offres 4 Modules : - 20.00€ </p>
-				{%set total = total - 20.00 %}	
-			{% endif %}
-
-
-			<p style="text-align: right"> Prix Total : {{ total}} € </p>
+			<h3 style="text-align: right; color: #2b30ae"> Prix Total : {{ total}} € </h3>
 		</div>
 	</div>
 
