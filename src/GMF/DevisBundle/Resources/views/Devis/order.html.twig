@@ -6,113 +6,120 @@
 	Demander un devis - {{ parent() }}
 {% endblock %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/gmfdevis/css/order.css') }}" type="text/css" />
+{% endblock %}
+
 {% block gmfdevis_body %}
 	<div class="container">
-		<h3 class="text-center"> Devis </h3>
+		<h3 class="text-center" id="title-page"> DEVIS </h3>
 
-		<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pellentesque neque et tincidunt sodales. Praesent tempus ultrices pellentesque. In hac habitasse platea dictumst. Aenean sed orci vel enim blandit vestibulum. Nulla vel tortor ullamcorper, porttitor dui et, aliquet ligula. Nunc ut est a libero fermentum semper nec eget lorem. Nunc ac luctus ligula, in varius lorem. Nam fermentum congue tempor. Vivamus interdum justo rhoncus, interdum felis nec, elementum felis. Morbi hendrerit ante et sapien condimentum venenatis. </p>
+		<div id="content-form">
 
-		<div >
-			{{ form_start(form) }}
+			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pellentesque neque et tincidunt sodales. Praesent tempus ultrices pellentesque. In hac habitasse platea dictumst. Aenean sed orci vel enim blandit vestibulum. Nulla vel tortor ullamcorper, porttitor dui et, aliquet ligula. Nunc ut est a libero fermentum semper nec eget lorem. Nunc ac luctus ligula, in varius lorem. Nam fermentum congue tempor. Vivamus interdum justo rhoncus, interdum felis nec, elementum felis. Morbi hendrerit ante et sapien condimentum venenatis. </p>
 
-			{# Erreur du formulaire #}
-			{{ form_errors(form) }}
+			<div >
+				{{ form_start(form) }}
 
-			{% for label, messages in app.flashes %}
-			    {% for message in messages %}
-			        <div class="flash-{{ label }} alert alert-danger">
-			            {{ message }}
-			        </div>
-			    {% endfor %}
-			{% endfor %}
+				{# Erreur du formulaire #}
+				{{ form_errors(form) }}
 
-			<div class="row">
-				<div class="col">
-			       <input type="radio" name="category" value="particulier" id="particulier" onClick="Category(this);" checked /> <label for="particulier">Particulier </label>
-			     </div>
-			     <div class="col">
-			       <input type="radio" name="category" value="entreprise" id="entreprise" onClick="Category(this);"/> <label for="entreprise"> Entreprise </label>
-			     </div>
-			</div>
+				{% for label, messages in app.flashes %}
+				    {% for message in messages %}
+				        <div class="flash-{{ label }} alert alert-danger">
+				            {{ message }}
+				        </div>
+				    {% endfor %}
+				{% endfor %}
 
-			<div class="company" style="display: none">
-				{{ form_label(form.company, "Nom de votre entreprise") }}
-				{{ form_errors(form.company)}}
-				{{ form_widget(form.company)}}
-			</div> <br>
+				<div class="row category">
+					<div class="col">
+				       <input type="radio" name="category" value="particulier" id="particulier" onClick="Category(this);" checked /> <label for="particulier">Particulier </label>
+				     </div>
+				     <div class="col">
+				       <input type="radio" name="category" value="entreprise" id="entreprise" onClick="Category(this);"/> <label for="entreprise"> Entreprise </label>
+				     </div>
+				</div>
 
-			<div class="row">
-				<div class="col">
+				<div class="company" style="display: none">
+					{{ form_label(form.company, "Nom de votre entreprise") }}
+					{{ form_errors(form.company)}}
+					{{ form_widget(form.company)}}
+				</div> <br>
+
+				
+				<div id="surname">
 					{{ form_label(form.surname) }} 
 					{{ form_errors(form.surname)}}
 					{{ form_widget(form.surname)}}
-				</div>
+				</div> <br>
 
-				<div class="col">
+				<div id="name">
 					{{ form_label(form.name) }}
 					{{ form_errors(form.name)}}
 					{{ form_widget(form.name)}}
+				</div> <br>				
+
+				<div class="company" style="display: none">
+					{{ form_label(form.siret, "Numéro SIRET") }}
+					{{ form_errors(form.siret)}}
+					{{ form_widget(form.siret)}}
+				</div> <br>
+
+				<div id="email">
+					{{ form_label(form.email, "Adresse e-mail") }}
+					{{ form_errors(form.email)}}
+					{{ form_widget(form.email, {'attr':{'onBlur':'checkEmail()'}})}} <br>
+
+					{{form_widget(form.email2, {'attr':{'onBlur': 'checkEmail()'}})}} <br>
+					<p class="alert alert-danger" id="email-danger" style="display:none"> Les deux adresses email ne sont pas identiques </p>
+					<p class="alert alert-success" id="email-success" style="display:none"> Les deux adresses email sont indentiques </p>
+				</div> <br>
+
+				<div id="phone">
+					{{ form_label(form.phone, "Téléphone") }}
+					{{ form_errors(form.phone)}}
+					{{ form_widget(form.phone)}}
+
+
+				</div> <br>
+
+				<div id="adresse">
+					{{ form_label(form.adress, "Adresse postale") }}
+					{{ form_errors(form.adress)}}
+					{{ form_widget(form.adress)}}
+				</div> <br>
+
+				<div class="row">
+					<div class="col" id="code_postal">
+						{{ form_label(form.zipCode, "Code postal") }}
+						{{ form_errors(form.zipCode)}}
+						{{ form_widget(form.zipCode)}}
+					</div>
+					<div class="col" id="ville">
+						{{ form_label(form.city, "Ville") }}
+						{{ form_errors(form.city)}}
+						{{ form_widget(form.city)}}
+					</div>
+				</div> <br>
+
+				<p> {{ form_label(form.modules)}} </p>
+				<div id="modules">
+					{{ form_widget(form.modules, {'attr':{'class':'row'}})}}
+				</div> <br>
+
+				<div id="submit" class="row">
+					<span class="mx-auto"> {{ form_row(form.envoyer) }}</span>
 				</div>
+
+			      
+				{{ form_rest(form) }}
+
+			 	{# Fermeture de la balise <form> du formulaire HTML #}
+			 	{{ form_end(form) }}
 			</div>
-
-			<div class="company" style="display: none">
-				{{ form_label(form.siret, "Numéro SIRET") }}
-				{{ form_errors(form.siret)}}
-				{{ form_widget(form.siret)}}
-			</div> <br>
-
-			<div id="email">
-				{{ form_label(form.email, "Adresse e-mail") }}
-				{{ form_errors(form.email)}}
-				{{ form_widget(form.email, {'attr':{'onBlur':'checkEmail()'}})}} <br>
-
-				{{form_widget(form.email2, {'attr':{'onBlur': 'checkEmail()', 'placeholder': 'Confirmer votre email'}})}} <br>
-				<p class="alert alert-danger" id="email-danger" style="display:none"> Les deux adresses email ne sont pas identiques </p>
-				<p class="alert alert-success" id="email-success" style="display:none"> Les deux adresses email sont indentiques </p>
-			</div> <br>
-
-			<div id="phone">
-				{{ form_label(form.phone, "Téléphone") }}
-				{{ form_errors(form.phone)}}
-				{{ form_widget(form.phone)}}
-
-
-			</div> <br>
-
-			<div id="adresse">
-				{{ form_label(form.adress, "Adresse postale") }}
-				{{ form_errors(form.adress)}}
-				{{ form_widget(form.adress)}}
-			</div> <br>
-
-			<div class="row">
-				<div class="col" id="code_postal">
-					{{ form_label(form.zipCode, "Code postal") }}
-					{{ form_errors(form.zipCode)}}
-					{{ form_widget(form.zipCode)}}
-				</div>
-				<div class="col" id="ville">
-					{{ form_label(form.city, "Ville") }}
-					{{ form_errors(form.city)}}
-					{{ form_widget(form.city)}}
-				</div>
-			</div> <br>
-
-			<p> {{ form_label(form.modules)}} </p>
-			<div id="modules">
-				{{ form_widget(form.modules, {'attr':{'class':'row'}})}}
-			</div>
-
-			<div id="submit" class="row">
-				<span class="mx-auto"> {{ form_row(form.envoyer) }}</span>
-			</div>
-
-		      
-			{{ form_rest(form) }}
-
-		 	{# Fermeture de la balise <form> du formulaire HTML #}
-		 	{{ form_end(form) }}
-		</div>
+		</div> <br>
 	</div>
 
 {% endblock %}

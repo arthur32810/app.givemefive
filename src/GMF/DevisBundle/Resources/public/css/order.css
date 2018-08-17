@@ -1,0 +1,15 @@
+/* Fichier order.css
+Feuille de style pour le formulaire */
+
+#title-page { color: #2b30ae;
+				margin-top: 5%; }
+
+#content-form { background-color: #e9eaf7;
+				opacity: 0.8; 
+				padding-left: 20px;
+				padding-right: 20px;}
+
+.form-control {background-color: #01c597;}
+
+[type="submit"] { background-color: #01c597;
+					color: #2b30ae; }
