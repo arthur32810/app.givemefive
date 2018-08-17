@@ -8,3 +8,13 @@ body { background: url("../images/motif.png");
 /* Navigation */
 #navigation { background-color: #01c597; }
 
+/* Footer */
+#footer { background-color:  #2b30ae; 
+			color: white;
+			margin-bottom: 0;}
+
+#footer i {color: #01c597;
+			font-size: 25px;
+			margin-right: 20px;}
+
+#footer a {color: white;}
