@@ -1,3 +1,25 @@
 {# src\GMF\DevisBundle\Resources\views\Devis\thanks.html.twig #}
 
 {% extends "GMFDevisBundle::layout.html.twig" %}
+
+{% block title %}
+	Merci - {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/gmfdevis/css/thanks.css') }}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+	<div class="container text-center" id="main">
+		<img src="{{ asset('bundles/gmfdevis/images/smyle.png') }}" class="img-fluid" > <br> <br>
+
+		<p> Nous vous remercions pour votre confiance<br>
+			Vous allez recevoir votre devis dans quelques instant par mail <br>
+			Nous vous contacterons dans les plus brefs délai !</p> <br>
+
+		<a href="{{ path('gmf_devis_order') }}" class="btn" role="button" id="new-devis"> DEMANDER UN NOUVEAU DEVIS </a> <br>
+		
+	</div> <br>
+{% endblock %}
