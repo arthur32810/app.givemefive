@@ -1,6 +1,10 @@
 /* Fichier Main.ccs
 Style css pincipal du site*/
 
+/* arriére plan de la page*/
+body { background: url("../images/motif.png");
+		font-family: 'Roboto', sans-serif; }
+
 /* Navigation */
 #navigation { background-color: #01c597; }
 
