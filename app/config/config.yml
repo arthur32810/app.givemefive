@@ -93,10 +93,17 @@ easy_admin:
             label: 'Gestion des devis'
             list:
                 title: '%%entity_label%%'
-                fields: ['numero', 'date']
+                fields: ['numero','view', 'date']
                 sort: date
         User:
             class: GMF\UserBundle\Entity\User
             label: 'Gestion des utilisateurs'
             list:
                 title: '%%entity_label%%'
+            form:
+                fields:
+                    - {property: 'username', label: "Nom d'utilisateur"}
+                    - {property: 'email', type: 'email', label: 'Email'}
+                    - {property: 'enabled', label: 'activé'}
+                    - {property: 'password', label: 'mot de passe'}
+                    - {property: 'roles', label: 'Roles'}
