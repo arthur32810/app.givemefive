@@ -1,0 +1,3 @@
+gmf_admin_view_devis:
+    path:     /admin/view/devis/{id}
+    defaults: { _controller: GMFAdminBundle:Admin:view_devis}
