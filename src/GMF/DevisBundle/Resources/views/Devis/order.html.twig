@@ -38,6 +38,9 @@
 
 				<div class="row category">
 					<div class="col">
+						<p> Vous êtes </p>
+					</div>
+					<div class="col">
 				       <input type="radio" name="category" value="particulier" id="particulier" onClick="Category(this);" checked /> <label for="particulier">Particulier </label>
 				     </div>
 				     <div class="col">
@@ -51,17 +54,22 @@
 					<div class="d-inline col-8"> {{ form_widget(form.company)}} </div>
 				</div> <br>
 				
-				<div id="surname" class="row" >
-					{{ form_errors(form.surname)}}
-					<div class="d-inline col-3"> {{ form_label(form.surname) }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.surname)}} </div>
-				</div> <br>
-
-				<div id="name" class="row">
-					{{ form_errors(form.name)}}
-					<div class="d-inline col-3"> {{ form_label(form.name) }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.name)}} </div>		
-				</div> <br>				
+				<div id="surnameAndName" class="row" >
+					
+					<div class="d-inline col-3"> Nom et Prénom</div>
+					<div class="d-inline col-8"> 
+						<div class="row">
+							<div class="col">
+								{{ form_widget(form.surname)}} 
+								{{ form_errors(form.surname)}}
+							</div>
+							<div class="col">
+								{{ form_widget(form.name)}} 
+								{{ form_errors(form.name)}}
+							</div>
+						</div>
+					</div>
+				</div> <br>			
 
 				<div class="company row" style="display: none">
 					{{ form_errors(form.siret)}}
@@ -72,12 +80,12 @@
 				<div id="email" class="row">
 					{{ form_errors(form.email)}}
 					<div class="d-inline col-3"> {{ form_label(form.email, "Adresse e-mail") }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.email, {'attr':{'onBlur':'checkEmail()'}})}} </div> <br>
+					<div class="d-inline col-8"> {{ form_widget(form.email, {'attr':{'onBlur':'checkEmail()'}})}} </div>
 
-					<div class="offset-3 col-8"> {{form_widget(form.email2, {'attr':{'onBlur': 'checkEmail()'}})}}</div> <br>
+					<div class="offset-3 col-8" style="margin-top: 15px"> {{form_widget(form.email2, {'attr':{'onBlur': 'checkEmail()'}})}}</div>
 					<div class="offset-3 col-8"> 
-						<p class="alert alert-danger" id="email-danger" style="display:none"> Les deux adresses email ne sont pas identiques </p>
-						<p class="alert alert-success" id="email-success" style="display:none"> Les deux adresses email sont indentiques </p>
+						<p class="alert alert-danger" id="email-danger" style="display:none; margin-top: 15px"> Les deux adresses email ne sont pas identiques </p>
+						<p class="alert alert-success" id="email-success" style="display:none; margin-top: 15px"> Les deux adresses email sont indentiques </p>
 					</div>
 				</div> <br>
 
@@ -94,24 +102,37 @@
 
 					
 				<div class="row" id="code_postal">
-					{{ form_errors(form.zipCode)}}
-					<div class="d-inline col-3"> {{ form_label(form.zipCode, "Code postal") }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.zipCode)}} </div>
+					
+					<div class="d-inline col-3"> Code postal et ville  </div>
+					<div class="d-inline col-8">
+						<div class="row">
+							<div class="col">
+							 	{{ form_widget(form.zipCode)}} 
+							 	{{ form_errors(form.zipCode)}}
+							 </div>
+							 <div class="col">
+							 	{{ form_widget(form.city)}}
+							 	{{ form_errors(form.city)}}
+							 </div>
+						</div>	
+					</div>
 				</div> <br>
 
-				<div class="row" id="ville">
-					{{ form_errors(form.city)}}
-					<div class="d-inline col-3"> {{ form_label(form.city, "Ville") }}  </div>
-					<div class="d-inline col-8">{{ form_widget(form.city)}} </div>						
-				</div>	 <br>
-
-				<p> {{ form_label(form.modules)}} </p>
-				<div id="modules">
-					{{ form_widget(form.modules, {'attr':{'class':'row'}})}}
-				</div> <br>
+				<div class="row">
+					<div class="d-inline col-3">
+						<p> {{ form_label(form.modules)}} </p>
+					</div>
+					<div class="d-inline col-8">
+						<div id="modules">
+							{{ form_widget(form.modules, {'attr':{'class':'row'}})}}
+						</div> <br>
+					</div>
+				</div>
 
 				<div id="submit" class="row">
-					<span class="mx-auto"> {{ form_row(form.envoyer) }}</span>
+					<div class="offset-3 col-8">
+						{{ form_row(form.envoyer, {'attr': {'class': 'col-12'}}) }}
+					</div>
 				</div>
 
 			      
