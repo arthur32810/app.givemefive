@@ -1,0 +1,13 @@
+{% extends 'GMFAdminBundle::layout.html.twig' %}
+
+{% block gmf_admin_body %}
+<div class="container">
+	<div class="row" style="background-color: blue">
+		<h4 class="text-center"> Gestion des devis </h4>
+	</div>
+	{% for devis in list_devis %}
+	{% endfor %}
+</div>
+
+{% endblock %}
+

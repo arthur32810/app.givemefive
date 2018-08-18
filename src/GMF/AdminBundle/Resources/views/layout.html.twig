@@ -1,0 +1,20 @@
+{% extends '::layout.html.twig' %}
+
+{% block header %}
+  <div id="navigation">
+    <div class="pos-f-t">
+      <nav class="navbar navbar-expand-lg navbar-light" id="menu" >
+          <!-- logo de l'agence -->
+        <a class="navbar-brand" href="#">
+          <img src="{{ asset('bundles/gmfdevis/images/logo.png') }}" alt="logo de l'agence">
+        </a>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
+
+{% block body %}
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block gmf_admin_body %}
+  {% endblock %}
+{% endblock %}

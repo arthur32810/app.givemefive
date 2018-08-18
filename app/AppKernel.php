@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new GMF\DevisBundle\GMFDevisBundle(),
             new GMF\UserBundle\GMFUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new GMF\AdminBundle\GMFAdminBundle(),
         ];
 

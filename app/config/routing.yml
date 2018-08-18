@@ -1,14 +1,9 @@
-gmf_admin:
-    resource: "@GMFAdminBundle/Resources/config/routing.yml"
-    prefix:   /
-
 gmf_devis:
     resource: "@GMFDevisBundle/Resources/config/routing.yml"
     prefix:   /
 
-easy_admin_bundle:
-    resource: "@EasyAdminBundle/Controller/AdminController.php"
-    type:     annotation
+gmf_admin:
+    resource: "@GMFAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
 
 fos_user_security:

@@ -2,28 +2,33 @@
 {% extends "::layout.html.twig" %}
 
 {% block header %}
-  <!-- logo de l'agence -->
-  <div class="row ">
-    <a class="" href="#">
-      <img src="{{ asset('bundles/gmfdevis/images/logo.png') }}" alt="logo de l'agence">
-    </a>
-  </div> <br>
+     <div id="navigation">
+    <div class="pos-f-t">
+      <nav class="navbar navbar-expand-lg navbar-light" id="menu" >
+          <!-- logo de l'agence -->
+        <a class="navbar-brand" href="#">
+          <img src="{{ asset('bundles/gmfdevis/images/logo.png') }}" alt="logo de l'agence">
+        </a>
+      </nav>
+    </div>
+  </div>
 {% endblock %}
 
-{# Dans notre layout, il faut définir le block body #}
-{% block body %}
+  {# Dans notre layout, il faut définir le block body #}
+  {% block body %}
+    <div class="container">
+      {# On affiche les messages flash que définissent les contrôleurs du bundle #}
+      {% for key, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+          <div class="alert alert-{{ key }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+          </div>
+        {% endfor %}
+      {% endfor %}
 
-  {# On affiche les messages flash que définissent les contrôleurs du bundle #}
-  {% for key, messages in app.session.flashbag.all() %}
-    {% for message in messages %}
-      <div class="alert alert-{{ key }}">
-        {{ message|trans({}, 'FOSUserBundle') }}
-      </div>
-    {% endfor %}
-  {% endfor %}
-
-  {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
-  {% block fos_user_content %}
-  {% endblock fos_user_content %}
+      {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
+      {% block fos_user_content %}
+      {% endblock fos_user_content %}
+    </div>
 
 {% endblock %}
