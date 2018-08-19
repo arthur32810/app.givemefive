@@ -36,4 +36,18 @@ class AdminController extends Controller
 		return $this->render('GMFAdminBundle:Admin:devisPDF.html.twig', array('devis'=>$devis, 'contact'=>$contact, 'modules'=>$modules));
 		
     }
+
+    public function delete_devisAction($id)
+    {
+    	$em = $this
+		  ->getDoctrine()
+		  ->getManager();
+
+		$devis = $em->getRepository('GMFDevisBundle:Devis')->find($id);
+
+		$em->remove($devis);
+		$em->flush();
+
+		return $this->redirectToRoute('gmf_admin_home');
+    }
 }
