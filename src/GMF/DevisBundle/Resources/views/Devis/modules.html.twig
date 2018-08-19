@@ -1,0 +1,97 @@
+{% extends 'GMFDevisBundle::layout.html.twig' %}
+
+{% block title %} Nos modules - {{ parent()}} {% endblock %}
+
+{% block stylesheets %}
+
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/gmfdevis/css/modules.css') }}" type="text/css" />
+{% endblock %}
+
+{% block gmfdevis_body %}
+	<h3 class="text-center" id="title-page"> Nos modules </h3>
+		<div class="row ">
+			<div class="offset-2 col-sm-8 col-md-2">
+				<img src="{{ asset('bundles/gmfdevis/images/fidelite.jpg')}}" class="img-fluid"/>
+			</div>
+			<div class="offset-2 offset-md-1 col-sm-12 col-md-4 bg-white"> 
+				<div class="row ">
+					<div class="col-3">
+						<p> <u>Fidélité client</u> </p>
+					</div>
+					<div class="col">
+						<p> <span class="price">29.99€/mois	 (Abonnement de 1 an minimum)</span></p>
+					</div>
+				</div> 
+				<p> Grâce à ce module, vous pouvez enfin récompenser votre meilleure clientèle avec un programme de fidélité sur-mesure. Choisissez vous-même les avantages à proposer à vos clients. Réductions, promotions sur des produits, créneaux horaires privilégiés ou évènements spéciaux, autant de petits plaisirs qui feront la joie de vos meilleurs clients (et même des pires !). Avec ce module, fini les cartes d’adhérents perdues et vive les clients heureux. ☺ <br>
+				Créer un lien fort avec votre clientèle, est la marque des grands entrepreneurs 👍 </p>
+			</div>
+		</div> <br>
+
+		<div class="row ">
+			<div class="offset-2 col-sm-8 col-md-2">
+				<img src="{{ asset('bundles/gmfdevis/images/reservation.jpg')}}" class="img-fluid"/>
+			</div>
+			<div class="offset-2 offset-md-1 col-sm-12 col-md-4 bg-white"> 
+				<div class="row">
+					<div class="col-3">
+						<p> <u>Réservation</u> </p>
+					</div>
+					<div class="col">
+						<p> <span class="price">59.99€/mois	 (Abonnement de 1 an minimum)</span></p>
+					</div>
+				</div> 
+				<p> Le système de réservation, relie en temps réel, l’application et l’agenda de votre société. Que vous soyez une structure d’activité de loisirs, ou un complexe sportif, ce module s’adapte à vos exigences. <br>
+				Grâce à son choix multiple (heure, demi-journée, journée, payante ou gratuite, seul ou groupe), vos clients peuvent réserver depuis leur mobile à n’importe quelle heure de la journée et de la nuit. Simple et efficace, ce module vous permet de vous libérer de cette tâche longue et fastidieuse. <br>
+				Toutes autres demandes seront examinées et réalisées sur devis </p>
+			</div>
+		</div> <br>
+
+		<div class="row ">
+			<div class="offset-2 col-sm-8 col-md-2">
+				<img src="{{ asset('bundles/gmfdevis/images/vente.jpg')}}" class="img-fluid"/>
+			</div>
+			<div class="offset-2 offset-md-1 col-sm-12 col-md-4 bg-white"> 
+				<div class="row">
+					<div class="col-3">
+						<p> <u>Vente de produits</u> </p>
+					</div>
+					<div class="col">
+						<p> <span class="price">49.99€/mois	 (Abonnement de 1 an minimum)</span></p>
+					</div>
+				</div> 
+				<p> Ce module permet de créer vous-même une boutique en ligne. Simple et intuitif, augmentez votre chiffre d’affaire avec vos produits, accessoires et autres produits dérivés de votre société. Très complet, ce dispositif comblera vos attentes. Gestion des commandes et des stocks, promotions, livraison, ce module est un véritable plus, pour vous permettre de vous développer sans connaissances informatiques, ni personnel supplémentaire dédié à cette activité. (Attention la machine à café n’est pas comprise dans l’abonnement de ce module☺)</p>
+			</div>
+			<div class="offset-2 col-8 bg-white"> <p class="option"> Les options (sur devis) : <br>
+				- Campagne publicitaire sur le web, permettant d’acquérir de nouveaux clients (France métropolitaine).<br>
+				- Campagne publicitaire spéciale promotion (soldes, spécial noël, date anniversaire…) </p>
+			</div>
+		</div> <br>
+
+		<div class="row ">
+			<div class="offset-2 col-sm-8 col-md-2">
+				<img src="{{ asset('bundles/gmfdevis/images/carte.jpg')}}" class="img-fluid"/>
+			</div>
+			<div class="offset-2 offset-md-1 col-sm-12 col-md-4 bg-white"> 
+				<div class="row">
+					<div class="col-3">
+						<p> <u>Carte interractive</u> </p>
+					</div>
+					<div class="col">
+						<p> <span class="price">39.99€/mois	 (Abonnement de 1 an minimum)</span></p>
+					</div>
+				</div> 
+				<p> CCe module permet de créer un plan 2D de votre activité commerciale. Il est interactif, et dispose d’une fonction description qui permet à vos clients de visualiser chaque appareil, atelier ou manège de votre société. Vos clients voient par exemple, le niveau de difficulté, l’âge minimum requis pour son utilisation, et un système de notation qu’ils peuvent remplir eux-mêmes. Ceci permet de connaître les attentes, et de s’adapter au mieux à leur besoins pour leur plus grand plaisir. </p>
+			</div>
+			<div class="offset-2 col-8 bg-white"> <p class="option"> Les options (sur devis) : <br>
+				- Carte 3D <br>
+				- Gestion des files d’attentes <br>
+				Toutes autres demandes seront examinées et réalisées sur devis </p>
+			</div>
+		</div> <br>
+
+		<div class="text-center" id="reduction">
+			<p> Pour la réservation de <span class="price"> 3 modules</span>,vous avez <span class="price"> 10 euros/mois </span> de réduction </p> 
+			<p> Pour la réservation de <span class="price"> 4 modules</span>,vous avez <span class="price"> 20 euros/mois </span> de réduction </p>
+		</div>
+{% endblock %}

@@ -6,8 +6,13 @@ gmf_devis_home:
 
 #Formulaire de réservation du devis
 gmf_devis_order:
-    path:     /order
+    path:     /commande
     defaults: { _controller: GMFDevisBundle:Devis:order }
+
+#Page des modules
+gmf_devis_modules:
+    path:   /modules
+    defaults: { _controller: GMFDevisBundle:Devis:modules}
 
 # Remerciement après demande d'un devis
 gmf_devis_thanks:

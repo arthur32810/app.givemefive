@@ -21,6 +21,12 @@ class DevisController extends Controller
         return $this->render('GMFDevisBundle:Devis:index.html.twig');
     }
 
+    public function modulesAction()
+    {
+        //Affichage de la page modules
+        return $this->render('GMFDevisBundle:Devis:modules.html.twig');
+    }
+
     public function orderAction(Request $request)
     {
     	//Formulaire sans entité
