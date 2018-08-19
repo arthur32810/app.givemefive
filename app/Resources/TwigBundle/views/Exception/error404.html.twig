@@ -1,0 +1,9 @@
+{% extends 'GMFDevisBundle::layout.html.twig' %}
+
+{% block title %} Erreur - {{ parent()}} {% endblock %}
+
+{% block gmfdevis_body %}
+  <h2 class="text-center" style="margin-top: 8%"> OUPS ! Erreur {{status_code}} - La page n'existe pas </h2>
+  <h3 class="text-center bg-white" style="margin-bottom: 8%"> Si vous souhaitez revenir à la page application <a href="{{ path('gmf_devis_home')}}"> cliquez-ici <br>
+    <img src="{{ asset('bundles/gmfdevis/images/logo-devis.png')}}"/> </h3>
+{% endblock %}
