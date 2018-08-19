@@ -24,10 +24,11 @@
          {% if is_granted("ROLE_ADMIN") %}
             <a class="nav-link" href="{{ path('gmf_admin_users')}}"> <h5> <i class="fas fa-users"></i> Gestion des utilisateurs </h5>
          {% endif %}
+         <hr style="background-color: #01c597">
          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
           <a class="nav-link" href="{{path('fos_user_profile_edit') }}"> <h5>  <i class="fas fa-user"></i> Modification de mon profil </h5> </a>
           <a class="nav-link" href="{{ path('fos_user_change_password') }}"> <h5><i class="fas fa-lock"></i> Modifier mon mot de passe </h5> </a>
-          <a class="nav-link" href="{{ path('fos_user_security_logout') }}"><h5> Déconnexion</h5> </a>
+          <a class="nav-link" href="{{ path('fos_user_security_logout') }}"><h5> <i class="fas fa-sign-out-alt"></i> Déconnexion</h5> </a>
         {% endif %}
       </nav>
     </div>

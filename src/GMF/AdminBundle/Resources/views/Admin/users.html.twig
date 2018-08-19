@@ -5,8 +5,6 @@
 
 		<h3 class="text-center "> Gestion des Utilisateurs </h3> <br>
 
-		<h4 class="text-right"> <a href="{{ path('fos_user_registration_register') }}"> <i class="fas fa-plus-circle"></i> Ajouter un éditeur </a></h4>
-
 		<div>
 	      {# On affiche tous les messages flash dont le nom est « info » #}
 	      {% for message in app.session.flashbag.get('success') %}
@@ -22,7 +20,6 @@
 						<th scope="col"> Rôle </th>
 						<th scope="col"> Adresse e-mail </th>
 						<th scope="col"> </th>
-						<th scope="col"> </th>
 					</tr>
 				</thead>	
 				<tbody>
@@ -31,10 +28,9 @@
 							<td> {{ user.username }} </td>
 							<td> {% for role in user.roles %} 
 									<p> {{ role }} </p>
-								{% endfor %} 
+								{% endfor %}
 							</td>
 							<td> {{ user.email }} </td>
-							<td> <a href="{{ path('gmf_admin_user_edit', {'username': user.username})}}"> <i class="fas fa-pencil-alt"></i> </a> </td>
 							<td> <a href="{{ path('gmf_admin_user_delete', {'username': user.username})}}" onclick="return(confirm('Etes-vous sûr de vouloir supprimer cet utilisateurs ?'));"> <i class="fas fa-trash-alt"></i> </a> </td>
 						</tr>
 					{% endfor %}
