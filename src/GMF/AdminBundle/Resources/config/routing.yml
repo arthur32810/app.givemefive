@@ -9,3 +9,15 @@ gmf_admin_view_devis:
 gmf_admin_delete_devis:
     path: /devis/delete/{id}
     defaults: { _controller: GMFAdminBundle:Admin:delete_devis}
+
+gmf_admin_users:
+    path : /users 
+    defaults: { _controller: GMFAdminBundle:Admin:users}
+
+gmf_admin_user_edit:
+    path: /user
+    defaults: { _controller: GMFAdminBundle:Admin:user_edit}
+
+gmf_admin_user_delete:
+    path: /user/delete/{username}
+    defaults: { _controller: GMFAdminBundle:Admin:delete_user}

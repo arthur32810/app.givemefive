@@ -16,8 +16,8 @@ class AdminController extends Controller
 		  ->getRepository('GMFDevisBundle:Devis')
 		;
 
-		$devis = $repository->findAll();
-		return $this->render('GMFAdminBundle:admin:devis.html.twig', array('list_devis'=> $devis));
+		$list_devis = $repository->findAll();
+		return $this->render('GMFAdminBundle:admin:devis.html.twig', array('list_devis'=> $list_devis));
 	}
 
     public function view_devisAction($id)
@@ -58,5 +58,36 @@ class AdminController extends Controller
 		$session->getFlashBag()->add('success', 'Le devis a bien été supprimé');
 
 		return $this->redirectToRoute('gmf_admin_home');
+    }
+
+    public function usersAction()
+    {
+    	$em = $this
+		  ->getDoctrine()
+		  ->getManager();
+
+		$list_users = $em->getRepository('GMFUserBundle:User')->findAll();
+
+		return $this->render('GMFAdminBundle:Admin:users.html.twig', array('list_users'=>$list_users));
+    }
+
+    public function user_editAction()
+    {
+    	return new Response('edit');
+    }
+
+    public function delete_userAction(Request $request, $username)
+    {
+		$userManager = $this->get('fos_user.user_manager');
+
+		$user = $userManager->findUserBy(array('username'=> $username));
+
+		$userManager->deleteUser($user);
+
+		$session = $request->getSession();
+		$session->getFlashBag()->add('success', 'L\'utilisateur a bien été supprimé');
+
+		return $this->redirectToRoute('gmf_admin_users');
+
     }
 }

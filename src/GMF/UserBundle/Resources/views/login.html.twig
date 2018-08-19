@@ -1,5 +1,5 @@
 {# On étend notre layout #}
-{% extends "GMFAdminBundle::layout.html.twig" %}
+{% extends "::layout.html.twig" %}
 
 {% block header %}
      <div id="navigation">
@@ -15,7 +15,7 @@
 {% endblock %}
 
   {# Dans notre layout, il faut définir le block body #}
-  {% block gmf_admin_body %}
+  {% block body %}
     <div class="container"> <br>
       {# On affiche les messages flash que définissent les contrôleurs du bundle #}
       {% for key, messages in app.session.flashbag.all() %}
