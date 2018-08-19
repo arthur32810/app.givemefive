@@ -1,20 +1,36 @@
 {% extends '::layout.html.twig' %}
 
+{% block stylesheets %}
+  {{ parent()}}
+  <link rel="stylesheet" href="{{ asset('bundles/gmfadmin/css/admin.css') }}" type="text/css" />
+{% endblock %}
+
 {% block header %}
   <div id="navigation">
-    <div class="pos-f-t">
       <nav class="navbar navbar-expand-lg navbar-light" id="menu" >
           <!-- logo de l'agence -->
         <a class="navbar-brand" href="#">
           <img src="{{ asset('bundles/gmfdevis/images/logo.png') }}" alt="logo de l'agence">
         </a>
       </nav>
-    </div>
   </div>
 {% endblock %}
 
 {% block body %}
-  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
-  {% block gmf_admin_body %}
-  {% endblock %}
+  <div class="row">
+    <div class="col-md-2" id="nav-admin">
+      <nav class="nav flex-column">
+        <a class="nav-link" href="{{path('gmf_admin_home')}} "> <h5> Gestion des devis</h5> </a>
+        <a class="nav-link" href="{{path('fos_user_profile_edit') }}"> <h5> Modification de mon profil </h5> </a>
+         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+          <a class="nav-link" href="{{ path('fos_user_security_logout') }}"><h5> Déconnexion</h5> </a>
+        {% endif %}
+      </nav>
+    </div>
+    <div class="col">
+      {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+      {% block gmf_admin_body %}
+      {% endblock %}
+    </div> 
+  </div>
 {% endblock %}

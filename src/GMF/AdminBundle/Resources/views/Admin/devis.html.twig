@@ -1,13 +1,28 @@
 {% extends 'GMFAdminBundle::layout.html.twig' %}
 
 {% block gmf_admin_body %}
-<div class="container">
-	<div class="row" style="background-color: blue">
-		<h4 class="text-center"> Gestion des devis </h4>
+	<div class="col-12">
+		<h3 class="text-center"> Gestion des devis </h3>
+
+		<table class="table bg-white">
+			<thead> 
+				<tr> 
+					<th scope="col"> Numero du devis </th>
+					<th scope="col"> Date de réalisation </th>
+					<th scope="col"> </th>
+				</tr>
+			</thead>	
+			<tbody>
+				{% for devis in list_devis %}
+					<tr>
+						<td>{{devis.numero}} <a href="{{ path('gmf_admin_view_devis', {id: devis.id}) }}"> <i class="far fa-eye float-right"></i> </a></td>
+						<td> {{devis.date|date('d-m-Y')}} </td>
+						<td> <a href="{{ path('gmf_admin_delete_devis', {id: devis.id})}}"> <i class="fas fa-trash-alt"></i> </a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	</div>
-	{% for devis in list_devis %}
-	{% endfor %}
-</div>
 
 {% endblock %}
 
