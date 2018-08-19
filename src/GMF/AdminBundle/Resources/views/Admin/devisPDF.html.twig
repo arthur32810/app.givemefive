@@ -1,10 +1,10 @@
+{% extends 'GMFAdminBundle::layout.html.twig' %}
 {# Devis #}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Devis {{devis.numero}} - GIVE ME FIVE</title>
+{% block title %} Devis {{devis.numero}} - GIVE ME FIVE {% endblock %}
 
+{% block stylesheets %}
+	{{parent()}}
 	<STYLE type="text/css">
 	   .container {
 		    width: 720px;
@@ -14,9 +14,15 @@
 		    margin-left: auto;
 		}
 	 </STYLE>
-</head>
-<body>
-	<div class="container">
+{% endblock %}
+
+
+
+{% block gmf_admin_body%}
+
+	<div class="container bg-white"><br>
+
+		<a href="{{ path('gmf_admin_home')}}" class="btn btn-primary float-right"> <i class="fas fa-arrow-circle-left"></i> Retour à la liste des devis </a>
 		
 		<img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/logo-devis.png') }}" alt="logo de l'agence Give Me Five" />
 		<h3 style="text-align: right; color: #2b30ae"> DEVIS {{ devis.numero}} </h3>
@@ -98,5 +104,4 @@
 		</div>
 	</div>
 
-</body>
-</html>
+{% endblock %}
