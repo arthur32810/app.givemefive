@@ -8,7 +8,9 @@ Feuille de style pour le formulaire */
 				padding-left: 20px;
 				padding-right: 20px;}
 
-.form-control {background-color: #01c597;}
+.form-control {background-color: rgba(1, 197, 151, 0.5);}
+
+.form-control::placeholder { color: #2b30ae; }
 
 [type="submit"] { background-color: #01c597;
 					color: #2b30ae; }
