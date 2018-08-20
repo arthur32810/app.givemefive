@@ -12,5 +12,9 @@ Feuille de style pour le formulaire */
 
 .form-control::placeholder { color: #2b30ae; }
 
+#reduction {background-color: rgba(1, 197, 151, 0.6);}
+
+.red {color: red;}
+
 [type="submit"] { background-color: #01c597;
 					color: #2b30ae; }
