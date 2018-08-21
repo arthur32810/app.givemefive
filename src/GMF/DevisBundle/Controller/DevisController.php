@@ -75,7 +75,7 @@ class DevisController extends Controller
                 // Création du numéro de devis
                 $devis = $devisAction->numeroDevis($devis, $em);               
 
-                //Appel du service GMFDevisAction
+                 //Appel du service GMFDevisAction
                 $emailAction = $this->container->get('gmf_devis.emailAction');
 
                 //Création du PDF
@@ -87,7 +87,9 @@ class DevisController extends Controller
                 // On lies les entitiés ensemble et en envoie en bdd
                 $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
 
-                return $this->redirectToRoute('gmf_devis_thanks');
+                //return $this->redirectToRoute('gmf_devis_thanks');*/
+
+                //return $this->render('GMFDevisBundle:Devis:devis.html.twig', array('modules'=>$modules, 'contact'=> $contact, 'devis' =>$devis));
                
             }
             else 
