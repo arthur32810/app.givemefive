@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use GMF\DevisBundle\Entity\Modules;
+use GMF\DevisBudnle\Form\ModulesType;
+
 class AdminController extends Controller
 {
 	public function devisAction()
@@ -69,6 +72,12 @@ class AdminController extends Controller
 		 $list_modules = $em->getRepository('GMFDevisBundle:Modules')->findAll();
 
 		 return $this->render('GMFAdminBundle:Admin:modules.html.twig', array('list_modules'=>$list_modules)); 
+    }
+
+    public function modules_addAction()
+    {
+    	$modules = new Modules();
+
     }
 
     public function usersAction()
