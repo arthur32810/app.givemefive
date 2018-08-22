@@ -7,7 +7,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<STYLE type="text/css">
-		@page { margin: 100px 25px; }
+		@page { margin: 100px 25px; 
+				font-size: 12px;}
 		footer { position: fixed; bottom: -60px; left: 0px; right: 0px; height: 50px; }
 		thead, th {border-bottom: 2px solid #dee2e6;
 					color: #2b30ae;}
@@ -15,6 +16,8 @@
 						color: #2b30ae;}
 
 		.blue {color: #2b30ae;}
+
+		h3 { font-size: 14px; }
 
 		
 	 </STYLE>
@@ -81,7 +84,7 @@
 				{% for module in modules %}
 					<tr>
 						<td class="blue"> {{module.type}} </td>
-						<td> {{module.description }} </td>
+						<td> Module {{module.name}} : {{module.description }} </td>
 						<td class="border-blue"> {{module.price }}</td>
 					</tr>
 					{% set nModules = nModules + 1 %}
@@ -101,16 +104,15 @@
 		<p style="text-align: right">  TVA non applicable, art 293 Bdu CGI </p>
 		<h5 style="text-align: right; color: #2b30ae"> Prix Total : {{ total}} € </h5> <br>
 		
-		<div class="row">
-			<div class="col">
-				<p> <b> Conditions </b></p>
-				<p> <b> Conditions de réglement : </b> 45 jour fin de mois </p>
-				<p> <b> Mode de réglement : </b> Chéque </p>
-				<p> <b> Intérêt de retard : </b> Taux d'intérêt légal en vigeur </p>
-			</div>
-			<div class="col ">
-				<img class="float-right" src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/bon-accord.png') }}" alt="logo de l'agence Give Me Five" />
-			</div>
+		<div>
+			<p> <b> Conditions </b></p>
+			<p> <b> Conditions de réglement : </b> 45 jour fin de mois </p>
+			<p> <b> Mode de réglement : </b> Chéque </p>
+			<p> <b> Intérêt de retard : </b> Taux d'intérêt légal en vigeur </p>
+		</div>
+
+		<div>
+			<img class="float-right" src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/bon-accord.png') }}" alt="logo de l'agence Give Me Five" />
 		</div>
 	</div>
 

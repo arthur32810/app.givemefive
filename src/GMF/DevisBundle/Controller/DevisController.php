@@ -82,7 +82,7 @@ class DevisController extends Controller
                 // On lies les entitiés ensemble et en envoie en bdd
                 $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
 
-                //return $this->redirectToRoute('gmf_devis_thanks');
+                return $this->redirectToRoute('gmf_devis_thanks');
                
             }
             else 
