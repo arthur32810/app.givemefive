@@ -60,6 +60,17 @@ class AdminController extends Controller
 		return $this->redirectToRoute('gmf_admin_home');
     }
 
+    public function modulesAction()
+    {
+    	$em = $this
+		  ->getDoctrine()
+		  ->getManager();
+
+		 $modules = $em->getRepository('GMFDevisBundle:Modules')->findAll();
+
+		 return $this->render('GMFAdminBundle:Admin:modules.html.twig', array('list_modules'=>$modules)); 
+    }
+
     public function usersAction()
     {
     	$userManager = $this->get('fos_user.user_manager');
