@@ -48,12 +48,6 @@ class Devis
     */
     private $contact;
 
-    /**
-    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
-    */
-    private $modules;
-
 
     /**
      * Get id.
@@ -159,78 +153,6 @@ class Devis
     public function getDevis()
     {
         return $this->devis;
-    }
-
-    /**
-     * Set idClient.
-     *
-     * @param int $idClient
-     *
-     * @return devis
-     */
-    public function setIdClient($idClient)
-    {
-        $this->idClient = $idClient;
-
-        return $this;
-    }
-
-    /**
-     * Get idClient.
-     *
-     * @return int
-     */
-    public function getIdClient()
-    {
-        return $this->idClient;
-    }
-
-    /**
-     * Set urlDevis.
-     *
-     * @param string $urlDevis
-     *
-     * @return Devis
-     */
-    public function setUrlDevis($urlDevis)
-    {
-        $this->url_devis = $urlDevis;
-
-        return $this;
-    }
-
-    /**
-     * Get urlDevis.
-     *
-     * @return string
-     */
-    public function getUrlDevis()
-    {
-        return $this->url_devis;
-    }
-
-    /**
-     * Set client.
-     *
-     * @param \GMF\DevisBundle\Entity\Client|null $client
-     *
-     * @return Devis
-     */
-    public function setClient(\GMF\DevisBundle\Entity\Client $client = null)
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    /**
-     * Get client.
-     *
-     * @return \GMF\DevisBundle\Entity\Client|null
-     */
-    public function getClient()
-    {
-        return $this->client;
     }
 
     /**

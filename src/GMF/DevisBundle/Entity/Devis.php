@@ -48,12 +48,6 @@ class Devis
     */
     private $contact;
 
-    /**
-    * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
-    */
-    private $modules;
-
 
     /**
      * Get id.
