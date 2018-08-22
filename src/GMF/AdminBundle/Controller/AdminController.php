@@ -95,6 +95,34 @@ class AdminController extends Controller
 
     }
 
+    public function modules_editAction(Request $request, $id)
+    {
+    	$em = $this->getDoctrine()->getManager();
+
+	    $module = $em->getRepository('GMFDevisBundle:Modules')->find($id);
+
+	    if (null === $module) {
+	      throw new NotFoundHttpException("Le module d'id ".$id." n'existe pas.");
+	    }
+
+		$form = $this->get('form.factory')->create(ModulesType::class, $module);
+
+	    if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+	     
+	     // Inutile de persister ici, Doctrine connait déjà notre annonce
+	      $em->flush();
+
+	      $request->getSession()->getFlashBag()->add('success', 'Module bien modifié.');
+
+	      return $this->redirectToRoute('gmf_admin_modules');
+	    }
+
+	    return $this->render('GMFAdminBundle:Admin:moduleEdit.html.twig', array(
+	      'form'   => $form->createView(),
+	    ));
+
+    }
+
     public function usersAction()
     {
     	$userManager = $this->get('fos_user.user_manager');
