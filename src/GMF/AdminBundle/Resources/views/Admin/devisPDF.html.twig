@@ -24,17 +24,22 @@
 
 		<a href="{{ path('gmf_admin_home')}}" class="btn btn-primary float-right"> <i class="fas fa-arrow-circle-left"></i> Retour à la liste des devis </a>
 		
-		<img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/logo-devis.png') }}" alt="logo de l'agence Give Me Five" />
-		<h3 style="text-align: right; color: #2b30ae"> DEVIS {{ devis.numero}} </h3>
+		
+		<div class="row">
+			<div class="col">
+				<img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/logo-devis.png') }}" alt="logo de l'agence Give Me Five" />
+			</div>
+			<div class="col">
+				<h3 class="col" style="text-align: right; color: #2b30ae"> DEVIS {{ devis.numero}} </h3>
+			</div>
+		</div> <br>
+	
+		<h3 style="color: #2b30ae;"> Date: <span style="color: black"> {{devis.date|date('d/m/Y')}}</span></h3> <br>
+		
 
-		<div>
-			<h3 style="color: #2b30ae"> Date: <span style="color: black"> {{devis.date|date('d/m/Y')}}</span></h3>
-		</div>
-
-		<div style="columns : 2;">
-			<div>
-				<h3 style="color: #2b30ae"> Emetteur </h3>
-				<div style="color: #01c597; font-weight: bold">
+			<div class="col-5 float-left">
+				<h3 style="color: #2b30ae; "> Emetteur </h3>
+				<div style="color: #01c597; font-weight: bold;">
 					<p> Votre contact : Gerome PELLERIN </p>
 					<p> Adresse : <br> 3 rue centre de marseille <br>
 					13001, Marseille </p> 
@@ -43,11 +48,9 @@
 				</div>
 			</div>
 				
-
-			<div>
+			<div class="col-5 float-right">
 				<h3 style="color: #2b30ae"> Destinataire </h3>
-
-				<div style="color: #01c597; font-weight: bold">
+				<div style="color: #01c597; font-weight: bold;">
 					<p> Contact : {% if contact.company != null %} 
 								{{contact.company }} 
 								{% else %}
@@ -58,50 +61,46 @@
 						{{contact.zipCode}}, {{ contact.city}}</p> 
 					<p> Email : {{contact.email}}</p>
 				</div>
-
 			</div>
-		</div> <br>
 
-		<div>
-			<h3 style="text-align: center; color: #2b30ae"> Modules choisis : </h3>
-			{% set nModules = 0 %}
-			{% set total = 0 %}
-			<b>
-				{% if modules.fidelite != null %}
-					<p style="text-align: right;"> Fidelité : 29.99€ </p>
+
+			<h5 style="color: #2b30ae; margin-top: 40%"> Objet : Estimation des modules pour l'application MyFive  </h5> <br>
+			<h5 style="color: #2b30ae"> Détails </h5>
+
+
+		{% set nModules = 0 %}
+		{% set total = 0 %}
+		<table class="table table-striped">
+			<thead>
+				<tr class="table-active">
+					<th scope="col" > Type </th>
+					<th scope="col"> Description </th>
+					<th scope="col" class="border-blue"> Prix unitaire HT </th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for module in modules %}
+					<tr>
+						<td class="blue"> {{module.type}} </td>
+						<td> Module {{module.name}} : {{module.description }} </td>
+						<td class="border-blue"> {{module.price }}</td>
+					</tr>
 					{% set nModules = nModules + 1 %}
-					{% set total = total + 29.99 %}
-				{% endif %}
+					{% set total = total + module.price %}
+				{% endfor %}
+			</tbody>
+		</table>
 
-				{% if modules.carte != null %}
-					<p style="text-align: right;"> Carte interactive : 39.99€ </p>
-					{% set nModules = nModules + 1 %}
-					{% set total = total + 39.99 %}
-				{% endif %}
-
-				{% if modules.vente != null %}
-					<p style="text-align: right;"> Vente de produits : 49.99€ </p>
-					{% set nModules = nModules + 1 %}
-					{% set total = total + 49.99 %}
-				{% endif %}
-
-				{% if modules.reservation != null %}
-					<p style="text-align: right;"> Réservation : 59.99€ </p>
-					{% set nModules = nModules + 1 %}
-					{% set total = total + 59.99 %}
-				{% endif %}
-
-				{% if nModules == 3 %}
-					<p style="text-align: right;"> Offres 3 Modules : - 10.00€ </p>
-					{% set total = total - 10.00 %}
-				{% elseif nModules == 4 %}
-					<p style="text-align: right;"> Offres 4 Modules : - 20.00€ </p>
-					{%set total = total - 20.00 %}	
-				{% endif %}
-			</b>
-
-			<h3 style="text-align: right; color: #2b30ae"> Prix Total : {{ total}} € </h3>
-		</div>
+		{% if nModules == 3 %}
+			<p style="text-align: right;"> Offres 3 Modules : - 10.00€ </p>
+			{% set total = total - 10.00 %}
+		{% elseif nModules == 4 %}
+			<p style="text-align: right;"> Offres 4 Modules : - 20.00€ </p>
+			{%set total = total - 20.00 %}	
+		{% endif %}
+		
+		<p style="text-align: right">  TVA non applicable, art 293 Bdu CGI </p>
+		<h5 style="text-align: right; color: #2b30ae"> Prix Total : {{ total}} € </h5> <br>
 	</div>
 
 {% endblock %}
