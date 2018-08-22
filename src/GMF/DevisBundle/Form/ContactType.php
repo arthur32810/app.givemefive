@@ -29,12 +29,12 @@ class ContactType extends AbstractType
             ->add('email',   EmailType::class, array('attr'=>array('placeholder' => 'Votre e-mail')))
             ->add('email2',  EmailType::class, array('attr'=>array('placeholder' => 'Confirmer votre adresse e-mail')))
             ->add('phone',   TextType::class, array('attr' =>array('placeholder' => '09.23.48.87.00')))
-           /* ->add('modules', EntityType::class, array(
+            ->add('modules', EntityType::class, array(
                 'class' => 'GMFDevisBundle:Modules',
                 'choice_label'=>'name',
                 'multiple' => true,
                 'expanded' => true))
-            ->add('envoyer', SubmitType::class)*/;
+            ->add('envoyer', SubmitType::class);
     }/**
      * {@inheritdoc}
      *

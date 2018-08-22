@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 use GMF\DevisBundle\Entity\Contact;
 use GMF\DevisBundle\Entity\Modules;
 use GMF\DevisBundle\Entity\Devis;
-use GMF\DevisBundle\Form\DevisType;
 use GMF\DevisBundle\Form\ContactType;
 
 class DevisController extends Controller
@@ -30,12 +29,15 @@ class DevisController extends Controller
 
     public function orderAction(Request $request)
     {
-    	$devis = new Devis();
-    	$form = $this->get('form.factory')->create(DevisType::class, $devis);
+    	$form = $this->get('form.factory')->create(ContactType::class);
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
         {
-          
+            $test = $form->getData();
+            var_dump($test);
+
+            $modules = $test['modules'];
+            var_dump($modules);
             /*//défintion de la session
             $session = $request->getSession();
 

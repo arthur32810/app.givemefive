@@ -51,9 +51,9 @@
 				
 
 				<div class="company row" style="display: none">
-					{{ form_errors(form.contact.company)}}
-					<div class="d-inline col-3"> {{ form_label(form.contact.company, "Nom de votre entreprise") }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.contact.company)}} </div>
+					{{ form_errors(form.company)}}
+					<div class="d-inline col-3"> {{ form_label(form.company, "Nom de votre entreprise") }}  </div>
+					<div class="d-inline col-8"> {{ form_widget(form.company)}} </div>
 				</div> <br>
 				
 				<div id="surnameAndName" class="row" >
@@ -62,29 +62,29 @@
 					<div class="d-inline col-8"> 
 						<div class="row">
 							<div class="col">
-								{{ form_widget(form.contact.surname)}} 
-								{{ form_errors(form.contact.surname)}}
+								{{ form_widget(form.surname)}} 
+								{{ form_errors(form.surname)}}
 							</div>
 							<div class="col">
-								{{ form_widget(form.contact.name)}} 
-								{{ form_errors(form.contact.name)}}
+								{{ form_widget(form.name)}} 
+								{{ form_errors(form.name)}}
 							</div>
 						</div>
 					</div>
 				</div> <br>			
 
 				<div class="company row" style="display: none">
-					{{ form_errors(form.contact.siret)}}
-					<div class="d-inline col-3"> {{ form_label(form.contact.siret, "Numéro SIRET") }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.contact.siret)}} </div>	
+					{{ form_errors(form.siret)}}
+					<div class="d-inline col-3"> {{ form_label(form.siret, "Numéro SIRET") }}  </div>
+					<div class="d-inline col-8"> {{ form_widget(form.siret)}} </div>	
 				</div> <br>
 
 				<div id="email" class="row">
-					{{ form_errors(form.contact.email)}}
-					<div class="d-inline col-3"> {{ form_label(form.contact.email, "Adresse e-mail") }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.contact.email, {'attr':{'onBlur':'checkEmail()'}})}} </div>
+					{{ form_errors(form.email)}}
+					<div class="d-inline col-3"> {{ form_label(form.email, "Adresse e-mail") }}  </div>
+					<div class="d-inline col-8"> {{ form_widget(form.email, {'attr':{'onBlur':'checkEmail()'}})}} </div>
 
-					<div class="offset-3 col-8" style="margin-top: 15px"> {{form_widget(form.contact.email2, {'attr':{'onBlur': 'checkEmail()'}})}}</div>
+					<div class="offset-3 col-8" style="margin-top: 15px"> {{form_widget(form.email2, {'attr':{'onBlur': 'checkEmail()'}})}}</div>
 					<div class="offset-3 col-8"> 
 						<p class="alert alert-danger" id="email-danger" style="display:none; margin-top: 15px"> Les deux adresses email ne sont pas identiques </p>
 						<p class="alert alert-success" id="email-success" style="display:none; margin-top: 15px"> Les deux adresses email sont indentiques </p>
@@ -92,14 +92,14 @@
 				</div> <br>
 
 				<div id="phone" class="row">
-					{{ form_errors(form.contact.phone)}}
-					<div class="d-inline col-3"> {{ form_label(form.contact.phone, "Téléphone") }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.contact.phone)}} </div>
+					{{ form_errors(form.phone)}}
+					<div class="d-inline col-3"> {{ form_label(form.phone, "Téléphone") }}  </div>
+					<div class="d-inline col-8"> {{ form_widget(form.phone)}} </div>
 				</div> <br>
 
 				<div id="adresse" class="row">
-					<div class="d-inline col-3"> {{ form_label(form.contact.adress, "Adresse postale") }}  </div>
-					<div class="d-inline col-8"> {{ form_widget(form.contact.adress)}} </div>
+					<div class="d-inline col-3"> {{ form_label(form.adress, "Adresse postale") }}  </div>
+					<div class="d-inline col-8"> {{ form_widget(form.adress)}} </div>
 				</div> <br>
 
 					
@@ -109,12 +109,12 @@
 					<div class="d-inline col-8">
 						<div class="row">
 							<div class="col">
-							 	{{ form_widget(form.contact.zipCode)}} 
-							 	{{ form_errors(form.contact.zipCode)}}
+							 	{{ form_widget(form.zipCode)}} 
+							 	{{ form_errors(form.zipCode)}}
 							 </div>
 							 <div class="col">
-							 	{{ form_widget(form.contact.city)}}
-							 	{{ form_errors(form.contact.city)}}
+							 	{{ form_widget(form.city)}}
+							 	{{ form_errors(form.city)}}
 							 </div>
 						</div>	
 					</div>
