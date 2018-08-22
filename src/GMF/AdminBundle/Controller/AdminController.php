@@ -76,20 +76,21 @@ class AdminController extends Controller
 
     public function modules_addAction(Request $request)
     {
-    	$modules = new Modules();
-    	$form = $this->get('form.factory')->create(ModulesType::class, $modules);
+    	$module = new Modules();
+    	$form = $this->get('form.factory')->create(ModulesType::class, $module);
 
     	if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-	      /*$em = $this->getDoctrine()->getManager();
-	      $em->persist($advert);
+	      
+	      $em = $this->getDoctrine()->getManager();
+	      $em->persist($module);
 	      $em->flush();
 
-	      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+	      $request->getSession()->getFlashBag()->add('success', 'Module bien enregistré.');
 
-	      return $this->redirectToRoute('oc_platform_view', array('id' => $advert->getId()));*/
+	      return $this->redirectToRoute('gmf_admin_modules');
 	    }
 
-	    return $this->render('GMFAdminBundle:Admin:modulesAdd.html.twig', array(
+	    return $this->render('GMFAdminBundle:Admin:moduleAdd.html.twig', array(
 	      'form' => $form->createView(),
 	    ));
 
