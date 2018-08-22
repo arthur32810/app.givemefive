@@ -18,6 +18,14 @@ gmf_admin_modules_add:
     path: /modules/add 
     defaults: { _controller: GMFAdminBundle:Admin:modules_add}
 
+gmf_admin_modules_edit:
+    path: /modules/edit/{id}
+    defaults: { _controller: GMFAdminBundle:Admin:modules_edit}
+
+gmf_admin_modules_delete:
+    path: /modules/delete/{id}
+    defaults: { _controller: GMFAdminBundle:Admin:modules_delete}
+
 gmf_admin_users:
     path : /users 
     defaults: { _controller: GMFAdminBundle:Admin:users}
