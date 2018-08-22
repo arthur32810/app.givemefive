@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use GMF\DevisBundle\Entity\Modules;
-use GMF\DevisBudnle\Form\ModulesType;
+use GMF\DevisBundle\Form\ModulesType;
 
 class AdminController extends Controller
 {
@@ -74,9 +74,24 @@ class AdminController extends Controller
 		 return $this->render('GMFAdminBundle:Admin:modules.html.twig', array('list_modules'=>$list_modules)); 
     }
 
-    public function modules_addAction()
+    public function modules_addAction(Request $request)
     {
     	$modules = new Modules();
+    	$form = $this->get('form.factory')->create(ModulesType::class, $modules);
+
+    	if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+	      /*$em = $this->getDoctrine()->getManager();
+	      $em->persist($advert);
+	      $em->flush();
+
+	      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+	      return $this->redirectToRoute('oc_platform_view', array('id' => $advert->getId()));*/
+	    }
+
+	    return $this->render('GMFAdminBundle:Admin:modulesAdd.html.twig', array(
+	      'form' => $form->createView(),
+	    ));
 
     }
 
