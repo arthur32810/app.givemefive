@@ -7,18 +7,23 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<STYLE type="text/css">
+		@page { margin: 100px 25px; }
+		footer { position: fixed; bottom: -60px; left: 0px; right: 0px; height: 50px; }
 		thead, th {border-bottom: 2px solid #dee2e6;
 					color: #2b30ae;}
 		.border-blue {border-left: 2px solid #2b30ae;
 						color: #2b30ae;}
 
-		.black {color: black;}
+		.blue {color: #2b30ae;}
 
 		
 	 </STYLE>
 </head>
 <body>
+	<footer> <p style="font-size: 13px;"> Agence GIVE ME FIVE -- 3 rue centre de marseille, Marseille (13001) - France - Siret: 52423904300915 - Email : accueil@givemefive.artdevelopp.fr</p> </footer>
+	
 	<div class="container">
+
 		<div class="row">
 			<div class="col">
 				<img src="{{ app.request.schemeAndHttpHost ~ asset('bundles/gmfdevis/images/logo-devis.png') }}" alt="logo de l'agence Give Me Five" />
@@ -31,8 +36,7 @@
 		<h3 style="color: #2b30ae;"> Date: <span style="color: black"> {{devis.date|date('d/m/Y')}}</span></h3> <br>
 		
 
-		<div class="row">
-			<div class="col">
+			<div class="col-5 float-left">
 				<h3 style="color: #2b30ae; "> Emetteur </h3>
 				<div style="color: #01c597; font-weight: bold;">
 					<p> Votre contact : Gerome PELLERIN </p>
@@ -43,8 +47,7 @@
 				</div>
 			</div>
 				
-
-			<div class="col">
+			<div class="col-5 float-right">
 				<h3 style="color: #2b30ae"> Destinataire </h3>
 				<div style="color: #01c597; font-weight: bold;">
 					<p> Contact : {% if contact.company != null %} 
@@ -58,87 +61,45 @@
 					<p> Email : {{contact.email}}</p>
 				</div>
 			</div>
-		</div> <br>
 
-		<h5 style="color: #2b30ae"> Objet : Estimation des modules pour l'application MyFive  </h5> <br>
-		<h5 style="color: #2b30ae"> Détails </h5>
+
+			<h5 style="color: #2b30ae; margin-top: 40%"> Objet : Estimation des modules pour l'application MyFive  </h5> <br>
+			<h5 style="color: #2b30ae"> Détails </h5>
+
 
 		{% set nModules = 0 %}
 		{% set total = 0 %}
-
 		<table class="table table-striped">
 			<thead>
-				<tr class="table-active"> <!-- style="color: #2b30ae; background-color: #e9eaf7"-->
+				<tr class="table-active">
 					<th scope="col" > Type </th>
 					<th scope="col"> Description </th>
-					<th scope="col" class="border-blue"> Quantité </th>
 					<th scope="col" class="border-blue"> Prix unitaire HT </th>
-					<th scope="col" class="border-blue"> Total </th>
 				</tr>
 			</thead>
-			<tbody>					
-				{% if modules.fidelite != null %}
-					<tr class="table-success">
-						<th> Produit </th>
-						<th class="black"> <p> Grâce à ce module, vous pouvez enfin récompenser votre meilleure clientèle avec un programme de fidélité sur-mesure. Choisissez vous-même les avantages à proposer à vos clients. Réductions, promotions sur des produits, créneaux horaires privilégiés ou évènements spéciaux, autant de petits plaisirs qui feront la joie de vos meilleurs clients (et même des pires !). Avec ce module, fini les cartes d’adhérents perdues et vive les clients heureux. ☺ <br>
-							Créer un lien fort avec votre clientèle, est la marque des grands entrepreneurs 👍 </p>
-						<th class="border-blue"> 1 </th> 
-						<th class="border-blue"> 29.99€ </th>
-						<th class="border-blue"> 29.99€ </th>
+			<tbody>
+				{% for module in modules %}
+					<tr>
+						<td class="blue"> {{module.type}} </td>
+						<td> {{module.description }} </td>
+						<td class="border-blue"> {{module.price }}</td>
 					</tr>
 					{% set nModules = nModules + 1 %}
-					{% set total = total + 29.99 %}
-				{% endif %}
-
-				{% if modules.carte != null %}
-					<tr class="table-active">
-						<th> Produit </th>
-						<th class="black"> <p>Ce module permet de créer un plan 2D de votre activité commerciale. Il est interactif, et dispose d’une fonction description qui permet à vos clients de visualiser chaque appareil, atelier ou manège de votre société. Vos clients voient par exemple, le niveau de difficulté, l’âge minimum requis pour son utilisation, et un système de notation qu’ils peuvent remplir eux-mêmes. Ceci permet de connaître les attentes, et de s’adapter au mieux à leur besoins pour leur plus grand plaisir. </p> </th>
-						<th class="border-blue"> 1 </th>
-						<th class="border-blue"> 39.99€ </th>
-						<th class="border-blue"> 39.99€ </th>
-					</tr>
-					{% set nModules = nModules + 1 %}
-					{% set total = total + 39.99 %}
-				{% endif %}
-
-				{% if modules.vente != null %}
-					<tr class="table-success">
-						<th> Produit </th>
-						<th class="black"> <p> Ce module permet de créer vous-même une boutique en ligne. Simple et intuitif, augmentez votre chiffre d’affaire avec vos produits, accessoires et autres produits dérivés de votre société. Très complet, ce dispositif comblera vos attentes. Gestion des commandes et des stocks, promotions, livraison, ce module est un véritable plus, pour vous permettre de vous développer sans connaissances informatiques, ni personnel supplémentaire dédié à cette activité. (Attention la machine à café n’est pas comprise dans l’abonnement de ce module☺)</p></th>
-						<th class="border-blue"> 1 </th>
-						<th class="border-blue"> 49.99 € </th>
-						<th class="border-blue"> 49.99€ </th>
-					</tr>
-					{% set nModules = nModules + 1 %}
-					{% set total = total + 49.99 %}
-				{% endif %}
-
-				{% if modules.reservation != null %}
-					<tr class="table-active">
-						<th> Produit </th>
-						<th class="black"> <p> Le système de réservation, relie en temps réel, l’application et l’agenda de votre société. Que vous soyez une structure d’activité de loisirs, ou un complexe sportif, ce module s’adapte à vos exigences. <br>
-						Grâce à son choix multiple (heure, demi-journée, journée, payante ou gratuite, seul ou groupe), vos clients peuvent réserver depuis leur mobile à n’importe quelle heure de la journée et de la nuit. Simple et efficace, ce module vous permet de vous libérer de cette tâche longue et fastidieuse. <br>
-						Toutes autres demandes seront examinées et réalisées sur devis </p></th>
-						<th class="border-blue"> 1 </th>
-						<th class="border-blue"> 59.99 € </th>
-						<th class="border-blue"> 59.99 € </th>
-					</tr>
-					{% set nModules = nModules + 1 %}
-					{% set total = total + 59.99 %}
-				{% endif %}
-
-				{% if nModules == 3 %}
-					<p style="text-align: right;"> Offres 3 Modules : - 10.00€ </p>
-					{% set total = total - 10.00 %}
-				{% elseif nModules == 4 %}
-					<p style="text-align: right;"> Offres 4 Modules : - 20.00€ </p>
-					{%set total = total - 20.00 %}	
-				{% endif %}
+					{% set total = total + module.price %}
+				{% endfor %}
 			</tbody>
 		</table>
-			<p style="text-align: right">  TVA non applicable, art 293 Bdu CGI </p>
-			<h5 style="text-align: right; color: #2b30ae"> Prix Total : {{ total}} € </h5> <br>
+
+		{% if nModules == 3 %}
+			<p style="text-align: right;"> Offres 3 Modules : - 10.00€ </p>
+			{% set total = total - 10.00 %}
+		{% elseif nModules == 4 %}
+			<p style="text-align: right;"> Offres 4 Modules : - 20.00€ </p>
+			{%set total = total - 20.00 %}	
+		{% endif %}
+		
+		<p style="text-align: right">  TVA non applicable, art 293 Bdu CGI </p>
+		<h5 style="text-align: right; color: #2b30ae"> Prix Total : {{ total}} € </h5> <br>
 		
 		<div class="row">
 			<div class="col">

@@ -71,13 +71,13 @@ class DevisController extends Controller
                 $devis = $devisAction->numeroDevis($devis, $em);               
 
                  //Appel du service GMFDevisAction
-               /* $emailAction = $this->container->get('gmf_devis.emailAction');
+               $emailAction = $this->container->get('gmf_devis.emailAction');
 
                 //Création du PDF
                 $devisPDF = $emailAction->generatePDF($contact, $modules, $devis);
 
                 // Envoi du mail
-                $email = $emailAction->sendMail($contact, $modules, $devis, $devisPDF);*/
+                $email = $emailAction->sendMail($contact, $modules, $devis, $devisPDF);
 
                 // On lies les entitiés ensemble et en envoie en bdd
                /* $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
