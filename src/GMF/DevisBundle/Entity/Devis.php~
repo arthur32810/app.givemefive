@@ -48,6 +48,11 @@ class Devis
     */
     private $contact;
 
+    /**
+    * @ORM\ManyToMany(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
+    */
+    private $modules;
+
 
     /**
      * Get id.

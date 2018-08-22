@@ -45,7 +45,7 @@ class Modules
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal", precision=3, scale=2)
+     * @ORM\Column(name="price", type="decimal", precision=5, scale=2)
      */
     private $price;
 

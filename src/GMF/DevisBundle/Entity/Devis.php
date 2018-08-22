@@ -48,6 +48,11 @@ class Devis
     */
     private $contact;
 
+    /**
+    * @ORM\ManyToMany(targetEntity="GMF\DevisBundle\Entity\Modules", cascade={"persist"})
+    */
+    private $modules;
+
 
     /**
      * Get id.
@@ -201,5 +206,38 @@ class Devis
     public function getContact()
     {
         return $this->contact;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->modules = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add module.
+     *
+     * @param \GMF\DevisBundle\Entity\Modules $module
+     *
+     * @return Devis
+     */
+    public function addModule(\GMF\DevisBundle\Entity\Modules $module)
+    {
+        $this->modules[] = $module;
+
+        return $this;
+    }
+
+    /**
+     * Remove module.
+     *
+     * @param \GMF\DevisBundle\Entity\Modules $module
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeModule(\GMF\DevisBundle\Entity\Modules $module)
+    {
+        return $this->modules->removeElement($module);
     }
 }
