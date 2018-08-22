@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use GMF\DevisBundle\Entity\Devis;
 use GMF\DevisBundle\Entity\Modules;
 use GMF\DevisBundle\Form\ModulesType;
 
@@ -48,13 +49,15 @@ class AdminController extends Controller
 
 		$devis = $em->getRepository('GMFDevisBundle:Devis')->find($id);
 
-		$contact = $em->getRepository('GMFDevisBundle:Contact')->find($devis->getContact()->getId());
+		  // On boucle sur les modules du devis pour les supprimer
+	    foreach ($devis->getModules() as $module) {
+	      $devis->removeModule($module);
+	    }
 
-		$modules = $em->getRepository('GMFDevisBundle:Modules')->find($devis->getModules()->getId());
+		$contact = $em->getRepository('GMFDevisBundle:Contact')->find($devis->getContact()->getId());
 
 		$em->remove($devis);
 		$em->remove($contact);
-		$em->remove($modules);
 		$em->flush();
 
 		$session = $request->getSession();
