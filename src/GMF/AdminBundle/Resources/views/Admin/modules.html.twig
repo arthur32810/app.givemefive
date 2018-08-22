@@ -34,7 +34,7 @@
 							<td> {{ module.description }} </td>
 							<td> {{ module.price }}</td>
 							<td> <a href="{{ path('gmf_admin_modules_edit', {id: module.id})}}"> <i class="fas fa-pencil-alt"></i> </a> </td>
-							<td> <a href="{{ path('gmf_admin_modules_delete', {id: module.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce devis?'));"> <i class="fas fa-trash-alt"></i> </a> </td>
+							<td> <a href="{{ path('gmf_admin_modules_delete', {id: module.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce module?'));"> <i class="fas fa-trash-alt"></i> </a> </td>
 						</tr>
 					{% endfor %}
 				</tbody>

@@ -124,6 +124,19 @@ class AdminController extends Controller
 
     }
 
+    public function modules_deleteAction(Request $request, $id)
+    {
+    	 $em = $this->getDoctrine()->getManager();
+    	 $module = $em->getRepository('GMFDevisBundle:Modules')->find($id);
+
+    	 $em->remove($module);
+    	 $em->flush();
+
+    	 $request->getSession()->getFlashBag()->add('success', 'Module supprimé !');
+
+	      return $this->redirectToRoute('gmf_admin_modules');
+    }
+
     public function usersAction()
     {
     	$userManager = $this->get('fos_user.user_manager');
