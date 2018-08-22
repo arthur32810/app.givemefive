@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use GMF\DevisBundle\Entity\Contact;
 use GMF\DevisBundle\Entity\Modules;
 use GMF\DevisBundle\Entity\Devis;
+use GMF\DevisBundle\Form\DevisType;
 use GMF\DevisBundle\Form\ContactType;
 
 class DevisController extends Controller
@@ -29,12 +30,13 @@ class DevisController extends Controller
 
     public function orderAction(Request $request)
     {
-    	//Formulaire sans entité
-    	$form = $this->get('form.factory')->create(ContactType::class);
+    	$devis = new Devis();
+    	$form = $this->get('form.factory')->create(DevisType::class, $devis);
 
-        if($request->isMethod('POST') && $form->handleRequest($request))
+        if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
         {
-            //défintion de la session
+          
+            /*//défintion de la session
             $session = $request->getSession();
 
             //Récupération des données du formulaire
@@ -91,15 +93,15 @@ class DevisController extends Controller
 
                 //return $this->render('GMFDevisBundle:Devis:devis.html.twig', array('modules'=>$modules, 'contact'=> $contact, 'devis' =>$devis));
                
-            }
+            /*}
             else 
             { 
                 $session->getFlashBag()->add('modules', 'Vous devez sélectionnez au moins un module');
-            }
+            }*/
         }
 
     	// Affiche la page de formulaire
-    	return $this->render('GMFDevisBundle:Devis:order.html.twig', array('form' => $form->createView(),));
+    	return $this->render('GMFDevisBundle:Devis:order.html.twig', array('form' => $form->createView()));
     }
 
     public function thanksAction()

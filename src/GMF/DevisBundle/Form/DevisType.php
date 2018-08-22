@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use GMF\DevisBundle\Form\ContactType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DevisType extends AbstractType
@@ -19,8 +20,10 @@ class DevisType extends AbstractType
             ->add('contact', ContactType::class)
             ->add('modules', EntityType::class, array(
                 'class' => 'GMFDevisBundle:Modules',
-                'choice_label'=>'modules',
-                'multiple' => true));
+                'choice_label'=>'name',
+                'multiple' => true,
+                'expanded' => true))
+            ->add('envoyer', SubmitType::class);
     }/**
      * {@inheritdoc}
      */
