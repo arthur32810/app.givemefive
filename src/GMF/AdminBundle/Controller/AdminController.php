@@ -66,9 +66,9 @@ class AdminController extends Controller
 		  ->getDoctrine()
 		  ->getManager();
 
-		 $modules = $em->getRepository('GMFDevisBundle:Modules')->findAll();
+		 $list_modules = $em->getRepository('GMFDevisBundle:Modules')->findAll();
 
-		 return $this->render('GMFAdminBundle:Admin:modules.html.twig', array('list_modules'=>$modules)); 
+		 return $this->render('GMFAdminBundle:Admin:modules.html.twig', array('list_modules'=>$list_modules)); 
     }
 
     public function usersAction()

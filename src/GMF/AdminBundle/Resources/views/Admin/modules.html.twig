@@ -1,0 +1,43 @@
+{% extends 'GMFAdminBundle::layout.html.twig' %}
+
+{% block gmf_admin_body%}
+	<div class="col-12" id="main-page">
+
+		<h3 class="text-center "> Gestion des Modules </h3> <br>
+
+		<a class="btn btn-primary float-right" href="{{ path('gmf_admin_modules_add')}}"> <i class="fas fa-plus-circle"></i> Ajouter un module </a> <br>
+
+		<div style="margin-top: 2%">
+	      {# On affiche tous les messages flash dont le nom est « info » #}
+	      {% for message in app.session.flashbag.get('success') %}
+	        <p class="alert alert-success"> {{ message }}</p>
+	      {% endfor %}
+	    </div>
+
+		{% if list_modules|length %} 
+			<table class="table table-striped bg-white">
+				<thead> 
+					<tr> 
+						<th scope="col"> Type </th>
+						<th scope="col"> Nom </th>
+						<th scope="col"> Description</th>
+						<th scope="col"> Prix </th>
+					</tr>
+				</thead>	
+				<tbody>
+					{% for module in list_modules %}
+						<tr>
+							<td> {{ module.type }}</td>
+							<td> {{ module.name }}</td>
+							<td> {{ module.description }} </td>
+							<td> {{ module.price }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<h3 class="text-center bg-white"> Vous n'avez aucun modules </h3>
+		{% endif %}
+
+	</div>
+{% endblock %}

@@ -14,6 +14,10 @@ gmf_admin_modules:
     path: /modules 
     defaults: { _controller: GMFAdminBundle:Admin:modules}
 
+gmf_admin_modules_add:
+    path: /modules/add 
+    defaults: { _controller: GMFAdminBundle:Admin:modules_add}
+
 gmf_admin_users:
     path : /users 
     defaults: { _controller: GMFAdminBundle:Admin:users}
