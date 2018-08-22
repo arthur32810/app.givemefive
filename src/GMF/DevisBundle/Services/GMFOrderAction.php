@@ -4,44 +4,18 @@ namespace GMF\DevisBundle\Services;
 
 class GMFOrderAction
 {
-	public function modulesNotNull($data)
+	public function modulesNotNull($modules)
 	{
-		$modules = $data['modules'];
 
-		if($modules == null)
+		if(count($modules)==0)
         {
+        	// L'array modules est null
             return false;
         }
         else 
         {
             return true;
         }
-	}
-
-	public function persistModules($datas, $modules, $em)
-	{
-		foreach ($datas as $data) {
-			switch($data)
-			{
-				case 'reservation':
-					$modules->setReservation(true);
-					break;
-
-				case 'fidelite':
-					$modules->setFidelite(true);
-					break;
-
-				case 'carte':
-					$modules->setCarte(true);
-					break;
-
-				case 'produits':
-					$modules->setVente(true);
-					break;
-			}
-		}
-
-		return $modules;
 	}
 
 	public function persistContact($data, $contact, $em)

@@ -33,12 +33,7 @@ class DevisController extends Controller
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
         {
-            $test = $form->getData();
-            var_dump($test);
-
-            $modules = $test['modules'];
-            var_dump($modules);
-            /*//défintion de la session
+            //défintion de la session
             $session = $request->getSession();
 
             //Récupération des données du formulaire
@@ -47,28 +42,24 @@ class DevisController extends Controller
             //Appel du service GMFOrderAction
             $orderAction = $this->container->get('gmf_devis.orderAction');
 
+            $modules = $datas['modules'];
+
             //Test si au moins un modules à été sélectionné
-            $modules = $orderAction->modulesNotNull($datas);
+            $modulesNotNull = $orderAction->modulesNotNull($modules);
             
-            if($modules)
+            if($modulesNotNull)
             {
-                // récupération de l'entité modules
-                $modules = new Modules();
+                // Récupération de l'entité Devis
+                $devis = new Devis();
 
                 // On récupère l'EntityManager
                 $em = $this->getDoctrine()->getManager();
-
-                //on défini les modules sélectionnés dans l'entité
-                $modules = $orderAction->persistModules($datas['modules'], $modules, $em);
 
                 //Récupération de l'entité contact
                 $contact = new Contact();
 
                 // on défini l'entité contact
                 $contact = $orderAction->persistContact($datas, $contact, $em);
-
-                //Récupération de l'entité devis
-                $devis = new Devis();
 
                 //Appel du service GMFDevisAction
                 $devisAction = $this->container->get('gmf_devis.devisAction');
@@ -80,26 +71,26 @@ class DevisController extends Controller
                 $devis = $devisAction->numeroDevis($devis, $em);               
 
                  //Appel du service GMFDevisAction
-                $emailAction = $this->container->get('gmf_devis.emailAction');
+               /* $emailAction = $this->container->get('gmf_devis.emailAction');
 
                 //Création du PDF
                 $devisPDF = $emailAction->generatePDF($contact, $modules, $devis);
 
                 // Envoi du mail
-                $email = $emailAction->sendMail($contact, $modules, $devis, $devisPDF);
+                $email = $emailAction->sendMail($contact, $modules, $devis, $devisPDF);*/
 
                 // On lies les entitiés ensemble et en envoie en bdd
-                $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
+               /* $devis = $devisAction->persistDevis($contact, $modules, $devis, $em);
 
                 //return $this->redirectToRoute('gmf_devis_thanks');*/
 
-                //return $this->render('GMFDevisBundle:Devis:devis.html.twig', array('modules'=>$modules, 'contact'=> $contact, 'devis' =>$devis));
+                return $this->render('GMFDevisBundle:Devis:devis.html.twig', array('modules'=>$modules, 'contact'=> $contact, 'devis' =>$devis));
                
-            /*}
+            }
             else 
             { 
                 $session->getFlashBag()->add('modules', 'Vous devez sélectionnez au moins un module');
-            }*/
+            }
         }
 
     	// Affiche la page de formulaire

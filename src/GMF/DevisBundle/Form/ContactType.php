@@ -35,14 +35,6 @@ class ContactType extends AbstractType
                 'multiple' => true,
                 'expanded' => true))
             ->add('envoyer', SubmitType::class);
-    }/**
-     * {@inheritdoc}
-     *
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'GMF\DevisBundle\Entity\Contact'
-        ));
     }
 
     /**

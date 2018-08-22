@@ -59,7 +59,10 @@ class GMFDevisAction
 	public function persistDevis($contact, $modules, $devis, $em)
 	{
 		$devis->setContact($contact);
-		$devis->setModules($modules);
+		
+		foreach ($modules as $module) {
+			$devis->addModule($module);
+		}
 
 		$em->persist($devis);
 		$em->flush();
