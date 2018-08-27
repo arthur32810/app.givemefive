@@ -26,5 +26,5 @@ body { background: url("../images/motif.png");
 .fa-trash-alt {color: red;}
 
 /* Bouton demander un devis */
-.a-devis {background-color: #01c597 ;
+a.a-devis {background-color: #01c597 ;
 			 color: #2b30ae}
