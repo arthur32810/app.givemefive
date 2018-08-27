@@ -21,3 +21,6 @@ h5 {color : #2b30ae;}
 
 #carte {background: url("../images/carte.jpg") no-repeat; }
 
+/* Bouton en savoir plus */
+.a-more {background-color: #2b30ae; 
+			color: white}

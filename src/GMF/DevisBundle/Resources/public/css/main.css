@@ -24,3 +24,7 @@ body { background: url("../images/motif.png");
 /* Couleur des icones */
 /* Poubelle */
 .fa-trash-alt {color: red;}
+
+/* Bouton demander un devis */
+.a-devis {background-color: #01c597 ;
+			 color: #2b30ae}

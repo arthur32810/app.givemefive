@@ -16,5 +16,5 @@ gmf_devis_modules:
 
 # Remerciement après demande d'un devis
 gmf_devis_thanks:
-    path:     /thanks
+    path:     /merci
     defaults: { _controller: GMFDevisBundle:Devis:thanks}
