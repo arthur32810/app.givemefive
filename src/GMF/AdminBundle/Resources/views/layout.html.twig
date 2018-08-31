@@ -21,6 +21,7 @@
     <div class="col-md-2" id="nav-admin">
       <nav class="nav flex-column">
         <a class="nav-link" href="{{path('gmf_admin_home')}} "> <h5><i class="far fa-file-alt"></i> Gestion des devis</h5> </a>
+        <a class="nav-link" href="{{path('gmf_admin_clients')}}"> <h5> <i class="fas fa-people-carry"></i> Gestion des clients </h5> </a>
          <a class="nav-link" href="{{path('gmf_admin_modules')}}"> <h5> <i class="fas fa-mobile-alt"></i> Gestion des modules </h5></a>
          {% if is_granted("ROLE_ADMIN") %}
             <a class="nav-link" href="{{ path('gmf_admin_users')}}"> <h5> <i class="fas fa-users"></i> Gestion des utilisateurs </h5>

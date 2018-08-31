@@ -10,6 +10,10 @@ gmf_admin_delete_devis:
     path: /devis/delete/{id}
     defaults: { _controller: GMFAdminBundle:Admin:delete_devis}
 
+gmf_admin_clients:
+    path: /clients
+    defaults: {_controller: GMFAdminBundle:Admin:clients}
+
 gmf_admin_modules:
     path: /modules 
     defaults: { _controller: GMFAdminBundle:Admin:modules}
