@@ -12,7 +12,7 @@ use GMF\DevisBundle\Form\ModulesType;
 
 class AdminController extends Controller
 {
-	public function reservationAction()
+	public function indexAction()
 	{
 		$repository = $this
 		  ->getDoctrine()
