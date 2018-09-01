@@ -16,17 +16,23 @@
 			<table class="table bg-white">
 				<thead> 
 					<tr> 
+						<th scope="col"> Nom </th>
+						<th scope="col"> Prénom </th>
+						<th scope="col"> Email </th>
 						<th scope="col"> Numero du devis </th>
 						<th scope="col"> Date de réalisation </th>
-						<th scope="col"> </th>
+						<th scope="col"> Devis </th>
 					</tr>
 				</thead>	
 				<tbody>
 					{% for devis in list_devis %}
 						<tr>
-							<td>{{devis.numero}} <a href="{{ path('gmf_admin_view_devis', {id: devis.id}) }}"> <i class="far fa-eye float-right"></i> </a></td>
+							<td> {{devis.contact.name}} </td>
+							<td> {{devis.contact.surname}} </td>
+							<td> {{devis.contact.email}} </td>
+							<td>{{devis.numero}} </td>
 							<td> {{devis.date|date('d-m-Y')}} </td>
-							<td> <a href="{{ path('gmf_admin_delete_devis', {id: devis.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir supprimer ce devis?'));"> <i class="fas fa-trash-alt"></i> </a></td>
+							<td> <a href="{{ path('gmf_admin_view_devis', {id: devis.id}) }}"> <i class="far fa-eye"></i> </a></td>
 						</tr>
 					{% endfor %}
 				</tbody>

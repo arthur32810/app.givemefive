@@ -21,7 +21,7 @@ class AdminController extends Controller
 		;
 
 		$list_devis = $repository->findAll();
-		return $this->render('GMFAdminBundle:admin:devis.html.twig', array('list_devis'=> $list_devis));
+		return $this->render('GMFAdminBundle:admin:index.html.twig', array('list_devis'=> $list_devis));
 	}
 
     public function view_devisAction($id)
@@ -37,7 +37,7 @@ class AdminController extends Controller
 		$contact = $devis->getContact();
 		$modules = $devis->getModules();
 
-		return $this->render('GMFAdminBundle:Admin:devisPDF.html.twig', array('devis'=>$devis, 'contact'=>$contact, 'modules'=>$modules));
+		return $this->render('GMFAdminBundle:Admin:viewDevis.html.twig', array('devis'=>$devis, 'contact'=>$contact, 'modules'=>$modules));
 		
     }
 
