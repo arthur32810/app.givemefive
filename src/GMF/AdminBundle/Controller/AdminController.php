@@ -41,31 +41,6 @@ class AdminController extends Controller
 		
     }
 
-    public function delete_devisAction(Request $request, $id)
-    {
-    	$em = $this
-		  ->getDoctrine()
-		  ->getManager();
-
-		$devis = $em->getRepository('GMFDevisBundle:Devis')->find($id);
-
-		  // On boucle sur les modules du devis pour les supprimer
-	    foreach ($devis->getModules() as $module) {
-	      $devis->removeModule($module);
-	    }
-
-		$contact = $em->getRepository('GMFDevisBundle:Contact')->find($devis->getContact()->getId());
-
-		$em->remove($devis);
-		$em->remove($contact);
-		$em->flush();
-
-		$session = $request->getSession();
-		$session->getFlashBag()->add('success', 'Le devis a bien été supprimé');
-
-		return $this->redirectToRoute('gmf_admin_home');
-    }
-
     public function modulesAction()
     {
     	$em = $this
