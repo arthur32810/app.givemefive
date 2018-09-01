@@ -43,7 +43,7 @@ class Devis
     private $numero;
 
     /**
-    * @ORM\Column(name="enabled", type="boolean")
+    * @ORM\Column(name="enabled", type="boolean", options={"default": true})
     */
     private $enabled;
 
