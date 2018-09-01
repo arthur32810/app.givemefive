@@ -22,6 +22,8 @@
 						<th scope="col"> Numero du devis </th>
 						<th scope="col"> Date de réalisation </th>
 						<th scope="col"> Devis </th>
+						<th scope="col" class="text-center"> Statut </th>
+						<th scope="col"> </th>
 					</tr>
 				</thead>	
 				<tbody>
@@ -33,6 +35,26 @@
 							<td>{{devis.numero}} </td>
 							<td> {{devis.date|date('d-m-Y')}} </td>
 							<td> <a href="{{ path('gmf_admin_view_devis', {id: devis.id}) }}"> <i class="far fa-eye"></i> </a></td>
+							<td class="text-center"> 
+								{% if devis.enabled == true %} 
+									<span class="alert alert-success"> Activé </span> 
+								{% elseif devis.enabled == false %} 
+									<span class="alert alert-danger">  Désactivé </span> 
+								{% endif %} 
+							</td>
+							<td>
+								{% if devis.enabled == true %}
+									<!-- Désactivation du devis -->
+									<a href="{{path('gmf_admin_devis_statut', {etat: '0', id: devis.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir desactivé ce devis?'));"> 
+										<i class="far fa-times-circle text-danger" style="font-size: 25px"></i>
+									</a>
+								{% elseif devis.enabled == false %}
+									<!-- Activation du devis -->
+									<a href="{{path('gmf_admin_devis_statut', {etat: '1', id: devis.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir activé ce devis?'));">
+										<i class="far fa-check-circle text-success" style="font-size: 25px"></i>
+									</a>
+								{% endif %}
+							</td>
 						</tr>
 					{% endfor %}
 				</tbody>

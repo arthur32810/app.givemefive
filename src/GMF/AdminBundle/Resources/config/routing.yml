@@ -1,6 +1,10 @@
 gmf_admin_home:
     path: /
     defaults: { _controller: GMFAdminBundle:Admin:reservation}
+
+gmf_admin_devis_statut:
+    path: /devis/statut/{etat}/{id}
+    defaults: {_controller: GMFAdminBundle:Admin:devisStatut}
     
 gmf_admin_view_devis:
     path:  /devis/view/{id}

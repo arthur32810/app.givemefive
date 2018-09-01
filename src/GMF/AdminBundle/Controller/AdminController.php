@@ -24,6 +24,22 @@ class AdminController extends Controller
 		return $this->render('GMFAdminBundle:admin:index.html.twig', array('list_devis'=> $list_devis));
 	}
 
+	public function devisStatutAction($etat, $id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$devis = $em->getRepository('GMFDevisBundle:Devis')->find($id);
+
+		if($etat == true || $etat == false)
+		{
+			$devis->setEnabled($etat);
+		}
+		
+		$em->flush();
+
+		return $this->redirectToRoute('gmf_admin_home');
+	}
+
     public function view_devisAction($id)
     {
        // Récupérayion des informations de la bdd 
