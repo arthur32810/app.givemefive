@@ -43,6 +43,12 @@ class Devis
     private $numero;
 
     /**
+    * @ORM\Column(name="enabled", type="boolean")
+    */
+    private $enabled;
+
+
+    /**
     * @ORM\OneToOne(targetEntity="GMF\DevisBundle\Entity\Contact", cascade={"persist"})
     * @ORM\JoinColumn(nullable=false)
     */
@@ -239,5 +245,29 @@ class Devis
     public function removeModule(\GMF\DevisBundle\Entity\Modules $module)
     {
         return $this->modules->removeElement($module);
+    }
+
+    /**
+     * Set enabled.
+     *
+     * @param bool $enabled
+     *
+     * @return Devis
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled.
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }
