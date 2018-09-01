@@ -41,20 +41,6 @@ class AdminController extends Controller
 		
     }
 
-    public function clientsAction()
-    {
-    	// Récupérayion des informations de la bdd 
-		$repository = $this
-		  ->getDoctrine()
-		  ->getManager()
-		  ->getRepository('GMFDevisBundle:Contact')
-		;
-
-		$list_clients = $repository->findAll();
-
-		return $this->render('GMFAdminBundle:Admin:clients.html.twig', array('list_clients' => $list_clients));
-    }
-
     public function modulesAction()
     {
     	$em = $this
