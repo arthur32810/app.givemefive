@@ -1,0 +1,43 @@
+{% extends 'GMFAdminBundle::layout.html.twig' %}
+
+{% block gmf_admin_body %}
+	<div class="col-12" id="main-page">
+
+		<h3 class="text-center "> Gestion des Clients </h3> <br>
+
+		<div>
+	      {# On affiche tous les messages flash dont le nom est « info » #}
+	      {% for message in app.session.flashbag.get('success') %}
+	        <p class="alert alert-success"> {{ message }}</p>
+	      {% endfor %}
+	    </div>
+
+		{% if list_clients|length %} 
+			<table class="table bg-white">
+				<thead> 
+					<tr> 
+						<th scope="col"> Nom </th>
+						<th scope="col"> Prénom </th>
+						<th scope="col"> Email </th>
+						<th scope="col"> Devis </th>
+					</tr>
+				</thead>	
+				<tbody>
+					{% for client in list_clients %}
+						<tr>
+							<td> {{ client.surname}} </td>
+							<td> {{ client.name}} </td>
+							<td> {{ client.email}} </td>
+							
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<h3 class="text-center bg-white"> Vous n'avez aucun client </h3>
+		{% endif %}
+
+	</div>
+
+{% endblock %}
+
