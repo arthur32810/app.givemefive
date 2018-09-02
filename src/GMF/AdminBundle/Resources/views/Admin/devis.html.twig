@@ -12,6 +12,14 @@
 	      {% endfor %}
 	    </div>
 
+	    <div>
+	    	<ul data-statut="{{etat}}" class="nav nav-pills">
+	    		<a class="nav-link" href="{{path('gmf_admin_devis')}}" id="allDevis"> Tous </a>
+	    		<a class="nav-link" href="{{path('gmf_admin_devis', {etat: '1'})}}" id="enabledDevis"> Activés </a>
+	    		<a class="nav-link" href="{{path('gmf_admin_devis', {etat: '0'})}}" id="disabledDevis"> Désactivés </a>
+	    	</ul>
+	    </div>
+
 		{% if list_devis|length %} 
 			<table class="table bg-white">
 				<thead> 
@@ -65,5 +73,27 @@
 
 	</div>
 
+{% endblock %}
+
+{% block javascript %}
+	{{ parent() }}
+
+	<script type="text/javascript">
+		var etat = $(".nav-pills").data("statut");
+
+		console.log(etat);
+		if(etat === 0)
+		{
+			$('#disabledDevis').addClass('active');
+		}
+		else if(etat === 1)
+		{
+			$('#enabledDevis').addClass('active');
+		}
+		else
+		{
+			$('#allDevis').addClass('active');
+		}
+	</script>
 {% endblock %}
 

@@ -33,7 +33,7 @@ class AdminController extends Controller
 			$list_devis = $repository->findAll();
 		}
 		
-		return $this->render('GMFAdminBundle:admin:devis.html.twig', array('list_devis'=> $list_devis));
+		return $this->render('GMFAdminBundle:admin:devis.html.twig', array('list_devis'=> $list_devis, 'etat'=>$etat));
 	}
 
 	public function devisStatutAction($etat, $id)
