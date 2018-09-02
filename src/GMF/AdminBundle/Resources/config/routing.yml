@@ -1,6 +1,14 @@
 gmf_admin_home:
-    path: /{etat}
-    defaults: { _controller: GMFAdminBundle:Admin:index}
+    path: /
+    defaults:
+        _controller: GMFAdminBundle:Admin:index
+
+gmf_admin_devis:
+    path: /devis/{etat}
+    defaults: 
+        _controller: GMFAdminBundle:Admin:devis
+        etat: all
+
 
 gmf_admin_devis_statut:
     path: /devis/statut/{etat}/{id}

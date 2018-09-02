@@ -45,12 +45,12 @@
 							<td>
 								{% if devis.enabled == true %}
 									<!-- Désactivation du devis -->
-									<a href="{{path('gmf_admin_devis_statut', {etat: '0', id: devis.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir desactivé ce devis?'));"> 
+									<a href="{{path('gmf_admin_devis_statut', {etat: 0, id: devis.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir desactivé ce devis?'));"> 
 										<i class="far fa-times-circle text-danger" style="font-size: 25px"></i>
 									</a>
 								{% elseif devis.enabled == false %}
 									<!-- Activation du devis -->
-									<a href="{{path('gmf_admin_devis_statut', {etat: '1', id: devis.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir activé ce devis?'));">
+									<a href="{{path('gmf_admin_devis_statut', {etat: 1, id: devis.id})}}" onclick="return(confirm('Etes-vous sûr de vouloir activé ce devis?'));">
 										<i class="far fa-check-circle text-success" style="font-size: 25px"></i>
 									</a>
 								{% endif %}

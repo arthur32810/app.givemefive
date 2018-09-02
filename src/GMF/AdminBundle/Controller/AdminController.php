@@ -14,14 +14,26 @@ class AdminController extends Controller
 {
 	public function indexAction()
 	{
+		return $this->redirectToRoute('gmf_admin_devis');
+	}
+	public function devisAction($etat)
+	{
 		$repository = $this
 		  ->getDoctrine()
 		  ->getManager()
 		  ->getRepository('GMFDevisBundle:Devis')
 		;
 
-		$list_devis = $repository->findAll();
-		return $this->render('GMFAdminBundle:admin:index.html.twig', array('list_devis'=> $list_devis));
+		if($etat == '0' || $etat == '1')
+		{
+			$list_devis = $repository->findBy(array('enabled'=>$etat));
+		}
+		
+		else{
+			$list_devis = $repository->findAll();
+		}
+		
+		return $this->render('GMFAdminBundle:admin:devis.html.twig', array('list_devis'=> $list_devis));
 	}
 
 	public function devisStatutAction($etat, $id)
@@ -30,7 +42,7 @@ class AdminController extends Controller
 
 		$devis = $em->getRepository('GMFDevisBundle:Devis')->find($id);
 
-		if($etat == true || $etat == false)
+		if($etat == 0 || $etat == 1)
 		{
 			$devis->setEnabled($etat);
 		}
