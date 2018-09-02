@@ -97,6 +97,6 @@ class DevisController extends Controller
 
     public function thanksAction()
     {
-    	return $this->render('GMFDevisBundle:devis:thanks.html.twig');
+    	return $this->render('GMFDevisBundle:Devis:thanks.html.twig');
     }
 }
